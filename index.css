@@ -141,12 +141,6 @@ header nav {
     cursor: pointer;
 }
 
-/* .container-card{
-    border: 1px solid black;
-    margin: 5px;
-    border-radius: 15px;
-} */
-
 
 .container-card .name {
     position: relative;
@@ -163,12 +157,6 @@ header nav {
     padding-bottom: 25px;
     border-radius: 25px;
 }
-
-img{
-    /* width: 50px !important; */
-    /* height: 50px !important; */
-}
-
 
 /* Background  Shapes & Animation */
 .back-shapes {
