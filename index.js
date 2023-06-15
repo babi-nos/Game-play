@@ -73,7 +73,6 @@ const observer = new IntersectionObserver((entries) => {
         // cardGameList.style.right = `25px`;
         // cardGameList.style.justifyContent = "flex-end";
         // cardGameList.style.paddingRight = "75px";
-        // cardGameList.style.left =  translate + px  - 1500 + px;
         // cardGameList.style.right =  "5%";
         console.log(translate);
       } else if (entry.target === lastChild2) {
