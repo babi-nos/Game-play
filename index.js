@@ -9,7 +9,6 @@ btnNavbar.addEventListener("click", () => {
 
 const card = document.querySelectorAll(".card");
 
-
 card.forEach((el) => {
   el.addEventListener("mousemove", (e) => {
     let elRect = el.getBoundingClientRect();
@@ -94,7 +93,7 @@ const observer = new IntersectionObserver((entries) => {
         cardGameList2.style.transition = "all 1.1s ease-out";
         cardGameList2.style.justifyContent = "flex-end";
         cardGameList2.style.paddingRight = "50px";
-      }else if (entry.target === lastChild3) {
+      } else if (entry.target === lastChild3) {
         btnRight[2].style.display = "none";
         cardGameList3.style.left = `initial`;
         cardGameList3.style.transition = "all 1.1s ease-out";
@@ -106,7 +105,7 @@ const observer = new IntersectionObserver((entries) => {
         btnRight[0].style.display = "block";
       } else if (entry.target === lastChild2) {
         btnRight[1].style.display = "block";
-      }else if (entry.target === lastChild3) {
+      } else if (entry.target === lastChild3) {
         btnRight[2].style.display = "block";
       }
     }
@@ -127,7 +126,7 @@ btnRight.forEach((btn) => {
       cardGameList2.style.left = translate2 + px;
       btnLeft[1].style.display = "block";
       observer.observe(lastChild2);
-    }else if (this.dataset.value == 2) {
+    } else if (this.dataset.value == 2) {
       cardGameList3.style.transition = "all 1.1s ease-out";
       translate3 -= offset;
       cardGameList3.style.left = translate3 + px;
@@ -163,7 +162,7 @@ btnLeft.forEach((btnL) => {
         cardGameList2.style.left = "2%";
         btnLeft[1].style.display = "none";
       }
-    }else if (this.dataset.value == 2) {
+    } else if (this.dataset.value == 2) {
       cardGameList3.style.transition = "all 1.1s ease-out";
       cardGameList3.style.left = `${translate3}px`;
       cardGameList3.style.justifyContent = "left";
@@ -176,4 +175,68 @@ btnLeft.forEach((btnL) => {
       }
     }
   });
+});
+
+const rowsGame = document.querySelectorAll(".rows-game");
+
+const showArrow = (containerGame) => {
+  switch (containerGame) {
+    case "nouveaute":
+      console.log("noubifucclkkk");
+      btnLeft[0].style.opacity = 1;
+      btnRight[0].style.opacity = 1;
+      break;
+    case "classique":
+      btnLeft[1].style.opacity = 1;
+      btnRight[1].style.opacity = 1;
+      break;
+    case "adventure":
+      btnLeft[2].style.opacity = 1;
+      btnRight[2].style.opacity = 1;
+      break;
+    default:
+      break;
+  }
+};
+
+rowsGame.forEach((rows) => {
+  rows.addEventListener("mouseover", () => {
+    const containerGame = rows.classList[1];
+    showArrow(containerGame);
+  });
+  rowsGame.forEach((rows) => {
+    rows.addEventListener("mouseleave", () => {
+      btnLeft[0].style.opacity = 0;
+      btnRight[0].style.opacity = 0;
+      btnLeft[1].style.opacity = 0;
+      btnRight[1].style.opacity = 0;
+      btnLeft[2].style.opacity = 0;
+      btnRight[2].style.opacity = 0;
+    });
+  });
+});
+
+// Ajouter une transition à la propriété opacity
+const buttons = document.querySelectorAll(".btn-left, .btn-right");
+
+buttons.forEach((button) => {
+  button.style.transition = "opacity 0.35s ease";
+});
+
+const main = document.querySelector(".container-all");
+const navItem = document.querySelector(".toggle-nav");
+const navChoice = document.querySelector(".nav-choice");
+const toggleNav = document.querySelector(".toggle-nav");
+const insid = document.querySelector(".insid");
+
+navItem.addEventListener("click", () => {
+  if(toggleNav.classList[1] == "clicked"){
+    main.style.gridTemplateColumns = "15% 85%";
+    navChoice.style.left = "0px";
+  }else{
+    main.style.gridTemplateColumns = "0% 100%";
+    navChoice.style.left = "-500px";
+  }
+
+
 });

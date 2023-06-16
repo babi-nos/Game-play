@@ -45,28 +45,39 @@ header nav {
     border-bottom: 1px solid white;
 }
 
-.container-all{
+.container-all {
+    position: relative;
+    display: grid;
+    grid-template-columns: 0% 100%;
+}
+
+.all-game {
     position: relative;
 }
 
-.container-all .nav-choice{
-    position: absolute;
-    top: -0%;
-    width: 200px;
+.nav-choice {
+    position: relative;
+    width: 100%;
+    left: -500px;
+    bottom: 0px;
+}
+.insid{
+    position: fixed;
+    width: 15%;
     height: 100vh;
     background-color: white;
 }
-
-.toggle-nav{
+.toggle-nav {
     position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 0;
-    margin: 10px 0 0 0 ;
+    margin: 10px 0 0 0;
     cursor: pointer;
 }
-.toggle-nav span{
+
+.toggle-nav span {
     transition: all 0.50s ease-in-out;
     width: 45px;
     height: 3px;
@@ -130,7 +141,7 @@ header nav {
 
 @keyframes effect {
     0% {
-        transform:translateY(-50%) translateX(0px) rotate(0deg);
+        transform: translateY(-50%) translateX(0px) rotate(0deg);
     }
 
     20% {
@@ -138,24 +149,24 @@ header nav {
     }
 
     40% {
-        transform:translateY(-50%)  translateX(-2px) rotate(-2deg);
+        transform: translateY(-50%) translateX(-2px) rotate(-2deg);
     }
 
     60% {
-        transform:translateY(-50%) translateX(4px) rotate(4deg);
+        transform: translateY(-50%) translateX(4px) rotate(4deg);
     }
 
     80% {
-        transform:translateY(-50%) translateX(2px) rotate(2deg);
+        transform: translateY(-50%) translateX(2px) rotate(2deg);
     }
 
     100% {
-        transform:translateY(-50%) translateX(0px) rotate(0deg);
+        transform: translateY(-50%) translateX(0px) rotate(0deg);
     }
 }
 
 .title-game h1 {
-    padding: 0  0 0 50px ;
+    padding: 0 0 0 50px;
     font-size: 1.8rem;
     text-align: left;
     line-height: 32px;
@@ -410,11 +421,30 @@ header nav {
 }
 
 
+/* .gr {
+    position: relative;
+    height: 150px;
+    display: flex;
+    flex-direction: rows;
+}
 
+.gr .gra {
+    background-color: red;
+    flex-basis: 25%;
+}
+
+.gr .bom {
+    flex-basis: 50%;
+    background-color: green;
+}
+
+.gr .bot {} */
 
 
 .container-card-netflix {
     position: relative;
+    flex-basis: 65%;
+
 }
 
 .title {
@@ -459,9 +489,8 @@ header nav {
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.393);
-
     z-index: 3;
-
+    opacity: 0;
 }
 
 .container-card-netflix .rows-game button svg {
@@ -475,6 +504,7 @@ header nav {
     height: 80%;
     border-bottom-left-radius: 50px;
     border-top-left-radius: 50px;
+
 }
 
 .container-card-netflix .rows-game .btn-left {
@@ -484,10 +514,13 @@ header nav {
     height: 80%;
     border-bottom-right-radius: 50px;
     border-top-right-radius: 50px;
+    /* opacity: 0.5; */
+
 }
 
 .container-card-netflix .rows-game button:hover {
     background-color: rgba(0, 0, 0, 0.704);
+    opacity: 1;
 }
 
 .container-card-netflix .rows-game {
@@ -497,7 +530,7 @@ header nav {
 .container-card-netflix .rows-game .card-game-list {
     position: relative;
     display: flex;
-    justify-content:left;
+    justify-content: left;
     left: 2%;
     gap: 5px;
     color: white;
@@ -505,10 +538,11 @@ header nav {
     padding-bottom: 5px;
 }
 
+
 .container-card-netflix .rows-game .card-game-list2 {
     position: relative;
     display: flex;
-    justify-content:left;
+    justify-content: left;
     left: 2%;
     gap: 5px;
     text-align: center;
@@ -516,10 +550,11 @@ header nav {
     width: 100%;
     /* transition: all 0.15s ease-out; */
 }
+
 .container-card-netflix .rows-game .card-game-list3 {
     position: relative;
     display: flex;
-    justify-content:left;
+    justify-content: left;
     left: 2%;
     gap: 5px;
     text-align: center;
