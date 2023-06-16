@@ -48,7 +48,7 @@ audio.load();
 imgLogo.addEventListener("mouseover", () => {
   imgLogoHide.style.display = "block";
   imgLogo.style.display = "none";
-  audio.play();
+  // audio.play();
 
   imgLogoHide.addEventListener("mouseleave", () => {
     imgLogoHide.style.display = "none";
@@ -227,7 +227,6 @@ const main = document.querySelector(".container-all");
 const navItem = document.querySelector(".toggle-nav");
 const navChoice = document.querySelector(".nav-choice");
 const toggleNav = document.querySelector(".toggle-nav");
-const insid = document.querySelector(".insid");
 
 navItem.addEventListener("click", () => {
   if(toggleNav.classList[1] == "clicked"){
