@@ -128,7 +128,7 @@ header nav {
     border-radius: 50px;
     border: none;
     padding: 0 40px 0 15px;
-    outline: 2.5px dashed rgb(255, 255, 255);
+    outline: 2.5px dashed rgba(255, 255, 255, 0.922);
     font-size: 1.3rem;
     font-weight: 700;
     color: white;
@@ -366,7 +366,6 @@ header nav {
     position: relative;
     display: flex;
     align-items: center;
-
 }
 
 .container-card-netflix h3 {
@@ -376,8 +375,8 @@ header nav {
     font-family: serif;
     left: 2%;
     width: calc(80% - 10px);
-    /* height: 150px; */
-    padding: 5px 0;
+    margin-bottom: 5px;
+    /* height: 50px; */
 }
 
 .container-card-netflix h3::after {
@@ -385,7 +384,8 @@ header nav {
     position: absolute;
     width: 80%;
     height: 2px;
-    top: 50%;
+    top: 55%;
+    transform: translateY(-55%);
     border-top-right-radius: 100%;
     border-bottom-right-radius: 100%;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.221) 0%, rgba(0, 0, 0, 0.40) 40%) #98989849;
@@ -443,18 +443,21 @@ header nav {
     justify-content:left;
     left: 2%;
     gap: 5px;
-    /* text-align: center; */
     color: white;
     width: 100%;
+
 }
 
 .container-card-netflix .rows-game .card-game-list2 {
     position: relative;
     display: flex;
+    justify-content:left;
     left: 2%;
     gap: 5px;
     text-align: center;
     color: white;
+    width: 100%;
+    transition: all 0.15s ease-out;
 }
 
 .container-card-netflix .rows-game .card {
