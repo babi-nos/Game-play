@@ -341,38 +341,6 @@ header nav {
     background: radial-gradient(circle at 50% 0%, rgb(169, 169, 201), transparent);
 }
 
-
-.container-card .name {
-    position: relative;
-    text-align: center;
-    font-family: 'PT Sans Narrow', sans-serif;
-    clip-path: polygon(50% 0, 95% 0, 83% 59%, 98% 29%, 92% 100%, 50% 100%, 0 100%, 17% 46%, 3% 69%, 9% 0);
-    background-color: rgba(138, 138, 138, 0.134);
-}
-
-
-.container-card:hover .name {
-    scale: 1.15;
-    clip-path: polygon(50% 0, 95% 0, 100% 0, 100% 58%, 100% 100%, 50% 100%, 0 100%, 0 49%, 0 15%, 0 0);
-    z-index: 999;
-    background-color: transparent;
-    font-family: 'Bebas Neue', sans-serif;
-    color: rgb(186, 186, 186);
-    letter-spacing: 1px;
-}
-
-.container-card {
-    /* box-shadow: 1px 0px 20px 2px rgba(0, 0, 0, 0.253); */
-    padding: 0 0 0px 0;
-    padding: 15px;
-    border-radius: 25px;
-    cursor: pointer;
-}
-
-
-
-
-
 /* SLIDER */
 
 
@@ -444,27 +412,6 @@ header nav {
 
     }
 }
-
-
-/* .gr {
-    position: relative;
-    height: 150px;
-    display: flex;
-    flex-direction: rows;
-}
-
-.gr .gra {
-    background-color: red;
-    flex-basis: 25%;
-}
-
-.gr .bom {
-    flex-basis: 50%;
-    background-color: green;
-}
-
-.gr .bot {} */
-
 
 .container-card-netflix {
     position: relative;
