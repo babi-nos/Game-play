@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
 * {
     margin: 0;
@@ -26,7 +27,7 @@ header {
     font-size: 2rem;
     text-align: center;
     top: 0;
-    height: 90px;
+    height: 80px;
 }
 
 /* NAVBAR */
@@ -34,7 +35,7 @@ header {
 header nav {
     position: fixed;
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 5% 20% 55% 20%;
     align-items: center;
     background: rgba(12, 2, 43, 0.936);
     width: 100%;
@@ -44,11 +45,65 @@ header nav {
     border-bottom: 1px solid white;
 }
 
+.container-all{
+    position: relative;
+}
+
+.container-all .nav-choice{
+    position: absolute;
+    top: -0%;
+    width: 200px;
+    height: 100vh;
+    background-color: white;
+}
+
+.toggle-nav{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 10px 0 0 0 ;
+    cursor: pointer;
+}
+.toggle-nav span{
+    transition: all 0.50s ease-in-out;
+    width: 45px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0 5px 0;
+}
+
+/*sidebar Effect Js*/
+
+.toggle-nav.clicked span:nth-child(1) {
+    background: #00000000;
+}
+
+.toggle-nav.clicked span:nth-child(2) {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50px;
+    transform: rotate(-50deg);
+    transition: all 0.50s ease-in-out;
+}
+
+.toggle-nav.clicked span:nth-child(3) {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50px;
+    transform: rotate(50deg);
+    transition: all 0.50s ease-in-out;
+}
+
+.toggle-nav.clicked {
+    left: 0;
+}
 
 .title-game {
     position: relative;
-    display: grid;
-    grid-template-columns: 30% 70%;
+    display: flex;
+    /* grid-template-columns: 30% 70%; */
     align-items: center;
 }
 
@@ -59,10 +114,9 @@ header nav {
 
 .logo-gameplay img {
     position: absolute;
-    top: 0;
-    margin-top: 3px;
-    right: -5px;
-    width: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
     object-fit: cover;
     cursor: pointer;
     border-radius: 20px;
@@ -76,37 +130,38 @@ header nav {
 
 @keyframes effect {
     0% {
-        transform: translateX(0px) rotate(0deg);
+        transform:translateY(-50%) translateX(0px) rotate(0deg);
     }
 
     20% {
-        transform: translateX(-4px) rotate(-4deg);
+        transform: translateY(-50%) translateX(-4px) rotate(-4deg);
     }
 
     40% {
-        transform: translateX(-2px) rotate(-2deg);
+        transform:translateY(-50%)  translateX(-2px) rotate(-2deg);
     }
 
     60% {
-        transform: translateX(4px) rotate(4deg);
+        transform:translateY(-50%) translateX(4px) rotate(4deg);
     }
 
     80% {
-        transform: translateX(2px) rotate(2deg);
+        transform:translateY(-50%) translateX(2px) rotate(2deg);
     }
 
     100% {
-        transform: translateX(0px) rotate(0deg);
+        transform:translateY(-50%) translateX(0px) rotate(0deg);
     }
 }
 
 .title-game h1 {
-    font-size: 2rem;
+    padding: 0  0 0 50px ;
+    font-size: 1.8rem;
     text-align: left;
     line-height: 32px;
     font-family: 'Moirai One', cursive;
     font-weight: 900;
-    margin-bottom: 5px;
+    margin-top: 5px;
     /* padding-left: 15px; METTRE CELA EN MEDIA QUERY */
     cursor: pointer;
 
@@ -282,12 +337,12 @@ header nav {
 
 
 
-
+/* SLIDER */
 
 
 .slider {
     overflow: hidden;
-    padding: 15px;
+    padding: 20px 0 0 0;
 }
 
 .scroll-holder h1 {
@@ -318,7 +373,7 @@ header nav {
 }
 
 .scroll-tray div:hover {
-    scale: 1.05;
+    scale: 1.10;
 }
 
 .scroll-tray img {
@@ -326,7 +381,7 @@ header nav {
     margin: 7px 5px;
     padding: 0;
     width: 265px;
-    height: 175px;
+    height: 165px;
 }
 
 
@@ -366,17 +421,19 @@ header nav {
     position: relative;
     display: flex;
     align-items: center;
+    padding: 10px 0;
 }
 
 .container-card-netflix h3 {
     position: relative;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
     font-family: serif;
     left: 2%;
     width: calc(80% - 10px);
     margin-bottom: 5px;
-    /* height: 50px; */
+    font-family: 'Bruno Ace SC', cursive;
+    font-weight: 900;
 }
 
 .container-card-netflix h3::after {
@@ -445,7 +502,7 @@ header nav {
     gap: 5px;
     color: white;
     width: 100%;
-
+    padding-bottom: 5px;
 }
 
 .container-card-netflix .rows-game .card-game-list2 {
@@ -457,7 +514,18 @@ header nav {
     text-align: center;
     color: white;
     width: 100%;
-    transition: all 0.15s ease-out;
+    /* transition: all 0.15s ease-out; */
+}
+.container-card-netflix .rows-game .card-game-list3 {
+    position: relative;
+    display: flex;
+    justify-content:left;
+    left: 2%;
+    gap: 5px;
+    text-align: center;
+    color: white;
+    width: 100%;
+    /* transition: all 0.15s ease-out; */
 }
 
 .container-card-netflix .rows-game .card {
