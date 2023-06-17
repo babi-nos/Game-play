@@ -13,6 +13,18 @@
     text-decoration: none;
 }
 
+/* Couleur de fond de la barre de défilement */
+::-webkit-scrollbar {
+    background-color: #f1f1f100;
+    width: 3.5px;
+}
+
+/* Couleur de fond du curseur de la barre de défilement */
+::-webkit-scrollbar-thumb {
+    background-color: #c2c2c2;
+    border-radius: 1000px;
+}
+
 body {
     position: relative;
     /* background-image: linear-gradient(180deg, #231557 0%, #200839 49%, #48071d 100%); */
@@ -50,7 +62,6 @@ header nav {
     display: grid;
     grid-template-columns: 0% 100%;
     transition: all 0.5s ease-in-out;
-
 }
 
 .all-game {
@@ -67,31 +78,43 @@ header nav {
 
 
 }
-.insid{
-    position: fixed;
-    width: 15%;
-    height: 95vh;
 
+.insid {
+    position: fixed;
+    width: 17%;
+    height: 95vh;
+    background: rgba(12, 2, 43, 0.936);
     /* background-color: red; */
-    background-color: rgb(4, 6, 52);
+    /* background-color: rgb(4, 6, 52); */
     z-index: 9;
-    border-right: 1px solid white ;
+    border-right: 1px solid white;
     display: grid;
     /* overflow-y: scroll; */
     /* grid-template-rows: repeat(5%); */
-    overflow-y:scroll;
+    overflow-y: scroll;
     padding-bottom: 30px;
 }
-.insid .link {
-    padding: 10px 0 10px 0;
-    margin: auto;
-}
-.insid .link a{ 
-    font-size: 1.6rem;
-    color: white;
-    /* padding: 200px 0; */
 
+.insid .link {
+    padding: 15px 0 5px 0;
+    /* margin: auto; */
+    display: flex;
+    align-items: center;
+    /* display: flex; */
 }
+
+.insid .link svg {
+    padding: 0 12px;
+    width: 50px;
+    fill: rgba(0, 255, 17, 0.341);
+}
+
+.insid .link a {
+    font-size: 1.1rem;
+    color: white;
+    letter-spacing: 2px;
+}
+
 .toggle-nav {
     position: relative;
     display: flex;
@@ -231,7 +254,7 @@ header nav {
 }
 
 .search-game input:focus {
-    outline: 4px solid rgb(255, 255, 255);
+    outline: 2px solid rgb(255, 255, 255);
 }
 
 .search-game input:focus+svg {

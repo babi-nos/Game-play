@@ -230,7 +230,7 @@ const toggleNav = document.querySelector(".toggle-nav");
 
 navItem.addEventListener("click", () => {
   if(toggleNav.classList[1] == "clicked"){
-    main.style.gridTemplateColumns = "15% 85%";
+    main.style.gridTemplateColumns = "17% 83%";
     navChoice.style.left = "0px";
   }else{
     main.style.gridTemplateColumns = "0% 100%";
