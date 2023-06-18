@@ -77,16 +77,13 @@ const offset = 990; // Valeur de décalage (peut être ajustée selon vos besoin
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      console.log(entry);
       if (entry.target === lastChild) {
         btnRight[0].style.display = "none";
         cardGameList.style.left = `initial`;
-        // cardGameList.style.transition =  "none";
         cardGameList.style.transition = "all 1.1s ease-out";
 
         cardGameList.style.justifyContent = "right";
         cardGameList.style.paddingRight = "50px";
-        console.log(translate);
       } else if (entry.target === lastChild2) {
         btnRight[1].style.display = "none";
         cardGameList2.style.left = `initial`;
@@ -138,8 +135,6 @@ btnRight.forEach((btn) => {
 
 btnLeft.forEach((btnL) => {
   btnL.addEventListener("click", function (e) {
-    console.log(translate);
-
     if (this.dataset.value == 0) {
       cardGameList.style.transition = "all 1.1s ease-out";
       cardGameList.style.left = `${translate}px`;
@@ -182,7 +177,6 @@ const rowsGame = document.querySelectorAll(".rows-game");
 const showArrow = (containerGame) => {
   switch (containerGame) {
     case "nouveaute":
-      console.log("noubifucclkkk");
       btnLeft[0].style.opacity = 1;
       btnRight[0].style.opacity = 1;
       break;
@@ -229,13 +223,23 @@ const navChoice = document.querySelector(".nav-choice");
 const toggleNav = document.querySelector(".toggle-nav");
 
 navItem.addEventListener("click", () => {
-  if(toggleNav.classList[1] == "clicked"){
+  if (toggleNav.classList[1] == "clicked") {
     main.style.gridTemplateColumns = "17% 83%";
     navChoice.style.left = "0px";
-  }else{
+  } else {
     main.style.gridTemplateColumns = "0% 100%";
     navChoice.style.left = "-500px";
   }
-
-
 });
+
+const input = document.querySelector(".input");
+
+
+input.addEventListener('input', (e) => {
+  // input.addEventListener('submit', () => {
+
+    console.log(e.target.value);
+
+  // })
+})
+console.log(input);

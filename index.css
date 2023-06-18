@@ -83,7 +83,7 @@ header nav {
     position: fixed;
     width: 17%;
     height: 95vh;
-    background: rgba(12, 2, 43, 0.936);
+    background: #0C032B;
     /* background-color: red; */
     /* background-color: rgb(4, 6, 52); */
     z-index: 9;
@@ -106,7 +106,7 @@ header nav {
 .insid .link svg {
     padding: 0 12px;
     width: 50px;
-    fill: rgba(0, 255, 17, 0.341);
+    fill: #767676;
 }
 
 .insid .link a {
