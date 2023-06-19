@@ -82,7 +82,7 @@ const observer = new IntersectionObserver((entries) => {
         cardGameList.style.left = `initial`;
         cardGameList.style.transition = "all 1.1s ease-out";
 
-        cardGameList.style.justifyContent = "right";
+        cardGameList.style.justifyContent = "flex-end";
         cardGameList.style.paddingRight = "50px";
       } else if (entry.target === lastChild2) {
         btnRight[1].style.display = "none";
@@ -100,7 +100,7 @@ const observer = new IntersectionObserver((entries) => {
     } else {
       if (entry.target === lastChild) {
         btnRight[0].style.display = "block";
-      } else if (entry.target === lastChild2) {
+      } else if (entry.target === lastChild2) { // MODIFIER CE BLOCK IL PEUX ALLER EN HAUT !!!!
         btnRight[1].style.display = "block";
       } else if (entry.target === lastChild3) {
         btnRight[2].style.display = "block";
@@ -243,45 +243,80 @@ navItem.addEventListener("click", () => {
 // })
 // console.log(input);
 const cards = document.querySelectorAll(".cards");
-const displayChoice = document.querySelector(".choice-navbar-category");
+// const displayChoice = document.querySelector(".choice-navbar-category");
 const forChoice = document.querySelector(".forChoice");
 
-cards.forEach((card) => {
-  const value = card.dataset.value; // Accès à dataset.value de la carte
-  const tendance = card.dataset.tendance; // Accès à dataset.tendance de la carte
+// cards.forEach((card) => {
+//   const value = card.dataset.value; // Accès à dataset.value de la carte
+//   const tendance = card.dataset.tendance; // Accès à dataset.tendance de la carte
 
-  if (value) {
-    // card.style.display = "none";
-    const newCard = card;
-    displayCategory(newCard);
-    console.log(newCard);
-    forChoice.innerHTML += `<li class="cards">
-    ${newCard.innerHTML}
-    </li>`;
-  }
-  // console.log(card.dataset);
-  // if (tendance === "true") {
-  // console.log("Div: ", card);
-  // console.log("Class: ", card.className);
-  // Afficher d'autres informations de la carte si nécessaire
-  // }
-});
+//   if (value == "tendance") {
+//     // card.style.display = "none";
+//     const newCard = card;
+//     // displayCategory(newCard);
+//     console.log(newCard);
+//     forChoice.innerHTML += `<li class="cards">
+//     ${newCard.innerHTML}
+//     </li>`;
+//   }
+//   // console.log(card.dataset);
+//   // if (tendance === "true") {
+//   // console.log("Div: ", card);
+//   // console.log("Class: ", card.className);
+//   // Afficher d'autres informations de la carte si nécessaire
+//   // }
+// });
+
+const containerCategory = document.querySelectorAll(".container-card-netflix");
 
 function displayCategory(nameCategory) {
-  switch (nameCategory) {
-    case "Tendance":
-      // console.log(value);
-      console.log("ICI C4EST LES TEDNDECE FD¨P");
-      break;
-    case "Classique":
-      console.log("CHOPIN CLASQIUE CHAKAL");
-      break;
-    case "Accueil":
-      console.log("EMMA DZH >");
-      break;
-    default:
-      break;
-  }
+  containerCategory.forEach(function (containerCate) {
+    containerCate.style.display = "block"; // Réinitialiser la propriété display pour tous les éléments
+    const changeDisplay = containerCate.querySelector(".displayChoice");
+    const title = containerCate.querySelector(".title");
+    const titleh3 = containerCate.querySelector(".title h3");
+    titleh3.style.left = "0%";
+    titleh3.style.fontSize = "2rem";
+    title.style.justifyContent = "center";
+    changeDisplay.style.flexWrap = "wrap";
+    btnRight.forEach((btn) => {
+      btn.style.display = "none";
+    });
+    btnLeft.forEach((btn) => {
+      btn.style.display = "none";
+    });
+    console.log(nameCategory);
+
+    let cateDisplay = containerCate.dataset.value;
+    changeDisplay.style.justifyContent = "center";
+    changeDisplay.style.left = "0%";
+
+    cardGameList.style.justifyContent = "flex-start";
+    cardGameList2.style.justifyContent = "flex-start";
+    cardGameList3.style.justifyContent = "flex-start";
+
+
+    if (nameCategory !== cateDisplay) {
+      containerCate.style.display = "none";
+    }
+    if (nameCategory === "Accueil") {
+      console.log("dedededededed");
+    //   cardGameList.style.justifyContent = "left";
+    // cardGameList2.style.justifyContent = "left";
+    // cardGameList3.style.justifyContent = "left";
+      containerCate.style.display = "block";
+      changeDisplay.style.display = "flex";
+      changeDisplay.style.flexWrap = "nowrap";
+      changeDisplay.style.justifyContent = "left";
+      changeDisplay.style.left = "2%";
+      titleh3.style.left = "2%";
+      titleh3.style.fontSize = "1.5rem";
+      title.style.justifyContent = "left";
+      btnRight.forEach((btn) => {
+        btn.style.display = "block";
+      });
+    }
+  });
 }
 
 const allLink = document.querySelectorAll(".link");
@@ -290,8 +325,6 @@ allLink.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
     const nameCategory = link.querySelector("a").lastChild.data;
-
-    // const value = link.dataset.value;
 
     displayCategory(nameCategory);
     console.log(nameCategory);

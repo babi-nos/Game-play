@@ -57,17 +57,19 @@ header nav {
     border-bottom: 1px solid white;
 }
 
-.choice-navbar-category{
+.choice-navbar-category {
     position: relative;
     /* width: 100%; */
 }
-.choice-navbar-category .forChoice{
+
+.choice-navbar-category .forChoice {
     position: relative;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
 }
-.choice-navbar-category .forChoice .card{
+
+.choice-navbar-category .forChoice .card {
     position: relative;
     perspective: 1000px;
     /* height: 150px; */
@@ -75,6 +77,7 @@ header nav {
     /* margin: auto; */
     z-index: 7;
 }
+
 .container-all {
     position: relative;
     display: grid;
@@ -457,13 +460,13 @@ header nav {
 .container-card-netflix {
     position: relative;
     flex-basis: 65%;
-
 }
 
 .title {
     position: relative;
     display: flex;
     align-items: center;
+    /* justify-content: center; */
     padding: 10px 0;
 }
 
@@ -473,7 +476,7 @@ header nav {
     color: white;
     font-family: serif;
     left: 2%;
-    width: calc(80% - 10px);
+    /* width: calc(80% - 10px); */
     margin-bottom: 5px;
     font-family: 'Bruno Ace SC', cursive;
     font-weight: 900;
@@ -517,7 +520,7 @@ header nav {
     height: 80%;
     border-bottom-left-radius: 50px;
     border-top-left-radius: 50px;
-
+    display: block;
 }
 
 .container-card-netflix .rows-game .btn-left {
@@ -528,7 +531,6 @@ header nav {
     border-bottom-right-radius: 50px;
     border-top-right-radius: 50px;
     /* opacity: 0.5; */
-
 }
 
 .container-card-netflix .rows-game button:hover {
@@ -551,6 +553,9 @@ header nav {
     padding-bottom: 5px;
 }
 
+.displayChoice {
+    justify-content: center;
+}
 
 .container-card-netflix .rows-game .card-game-list2 {
     position: relative;
