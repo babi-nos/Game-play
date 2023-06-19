@@ -57,6 +57,24 @@ header nav {
     border-bottom: 1px solid white;
 }
 
+.choice-navbar-category{
+    position: relative;
+    /* width: 100%; */
+}
+.choice-navbar-category .forChoice{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.choice-navbar-category .forChoice .card{
+    position: relative;
+    perspective: 1000px;
+    /* height: 150px; */
+    /* width: 200px; */
+    /* margin: auto; */
+    z-index: 7;
+}
 .container-all {
     position: relative;
     display: grid;

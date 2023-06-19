@@ -232,14 +232,68 @@ navItem.addEventListener("click", () => {
   }
 });
 
-const input = document.querySelector(".input");
+// const input = document.querySelector(".input");
 
+// input.addEventListener('input', (e) => {
+//   // input.addEventListener('submit', () => {
 
-input.addEventListener('input', (e) => {
-  // input.addEventListener('submit', () => {
+//     console.log(e.target.value);
 
-    console.log(e.target.value);
+//   // })
+// })
+// console.log(input);
+const cards = document.querySelectorAll(".cards");
+const displayChoice = document.querySelector(".choice-navbar-category");
+const forChoice = document.querySelector(".forChoice");
 
-  // })
-})
-console.log(input);
+cards.forEach((card) => {
+  const value = card.dataset.value; // Accès à dataset.value de la carte
+  const tendance = card.dataset.tendance; // Accès à dataset.tendance de la carte
+
+  if (value) {
+    // card.style.display = "none";
+    const newCard = card;
+    displayCategory(newCard);
+    console.log(newCard);
+    forChoice.innerHTML += `<li class="cards">
+    ${newCard.innerHTML}
+    </li>`;
+  }
+  // console.log(card.dataset);
+  // if (tendance === "true") {
+  // console.log("Div: ", card);
+  // console.log("Class: ", card.className);
+  // Afficher d'autres informations de la carte si nécessaire
+  // }
+});
+
+function displayCategory(nameCategory) {
+  switch (nameCategory) {
+    case "Tendance":
+      // console.log(value);
+      console.log("ICI C4EST LES TEDNDECE FD¨P");
+      break;
+    case "Classique":
+      console.log("CHOPIN CLASQIUE CHAKAL");
+      break;
+    case "Accueil":
+      console.log("EMMA DZH >");
+      break;
+    default:
+      break;
+  }
+}
+
+const allLink = document.querySelectorAll(".link");
+
+allLink.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const nameCategory = link.querySelector("a").lastChild.data;
+
+    // const value = link.dataset.value;
+
+    displayCategory(nameCategory);
+    console.log(nameCategory);
+  });
+});
