@@ -542,6 +542,23 @@ header nav {
     position: relative;
 }
 
+
+.displayChoice {
+    position: relative;
+    display: flex;
+    /* justify-content: center; */
+    color: white;
+    justify-content: left;
+}
+
+/* .addClass {
+    left: initial;
+    display: flex;
+    justify-content: flex-end !important;
+    left: initial !important;
+    padding-right: 50px;
+} */
+
 .container-card-netflix .rows-game .card-game-list {
     position: relative;
     display: flex;
@@ -550,12 +567,10 @@ header nav {
     gap: 5px;
     color: white;
     width: 100%;
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
 }
 
-.displayChoice {
-    justify-content: center;
-}
+
 
 .container-card-netflix .rows-game .card-game-list2 {
     position: relative;
@@ -564,7 +579,6 @@ header nav {
     left: 2%;
     gap: 5px;
     text-align: center;
-    color: white;
     width: 100%;
     /* transition: all 0.15s ease-out; */
 }
@@ -580,6 +594,8 @@ header nav {
     width: 100%;
     /* transition: all 0.15s ease-out; */
 }
+
+
 
 .container-card-netflix .rows-game .card {
     position: relative;

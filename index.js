@@ -1,13 +1,64 @@
 const btnNavbar = document.querySelector(".toggle-nav");
+const main = document.querySelector(".container-all");
+const navItem = document.querySelector(".toggle-nav");
+const navChoice = document.querySelector(".nav-choice");
+const toggleNav = document.querySelector(".toggle-nav");
+const card = document.querySelectorAll(".card");
+const imgLogo = document.getElementById("logo");
+const imgLogoHide = document.getElementById("logo-hide");
+const btnRight = document.querySelectorAll(".btn-right");
+const btnLeft = document.querySelectorAll(".btn-left");
+const cardGameList = document.querySelector(".card-game-list");
+const cardGameList2 = document.querySelector(".card-game-list2");
+const cardGameList3 = document.querySelector(".card-game-list3");
+const lastChild = document.querySelector(".card-game-list li:last-child");
+const lastChild2 = document.querySelector(".card-game-list2 li:last-child");
+const lastChild3 = document.querySelector(".card-game-list3 li:last-child");
+const ul = document.querySelectorAll(".all-game ul");
+console.log(ul);
+
+let translate = 0;
+let translate2 = 0;
+let translate3 = 0;
+const px = "px";
+const offset = 990; // Valeur de décalage (peut être ajustée selon vos besoins)
+const largeurEcran = window.innerWidth;
+const width = cardGameList.scrollWidth;
+const width2 = cardGameList2.scrollWidth;
+const width3 = cardGameList3.scrollWidth;
+const diffenrence = width - largeurEcran;
+const diffenrence2 = width2 - largeurEcran;
+const diffenrence3 = width3 - largeurEcran;
+
+// const largeurEcran = window.innerWidth;
+const pourcentage = 17;
+const dixSeptPourcent = Math.round((pourcentage / 100) * largeurEcran);
+console.log(dixSeptPourcent);
+
+const cards = document.querySelectorAll(".cards");
+const forChoice = document.querySelector(".forChoice");
 
 btnNavbar.addEventListener("click", () => {
   btnNavbar.classList.toggle("clicked");
-  // container.classList.toggle("clicked");
+  // observer();
+});
+
+navItem.addEventListener("click", () => {
+  if (toggleNav.classList[1] == "clicked") {
+    main.style.gridTemplateColumns = "17% 83%";
+    navChoice.style.left = "0px";
+
+    // btnRight[0].style.display = "none";
+
+    // cardGameList.style.left += "-250px";
+    // translate = -diffenrence;
+  } else {
+    main.style.gridTemplateColumns = "0% 100%";
+    navChoice.style.left = "-500px";
+  }
 });
 
 // CARD EFECT CARD
-
-const card = document.querySelectorAll(".card");
 
 card.forEach((el) => {
   el.addEventListener("mousemove", (e) => {
@@ -38,9 +89,6 @@ card.forEach((el) => {
 
 // AUDIO LOGO
 
-const imgLogo = document.getElementById("logo");
-const imgLogoHide = document.getElementById("logo-hide");
-
 const audio = new Audio();
 audio.src = "audio-mout.wav";
 audio.load();
@@ -59,48 +107,45 @@ imgLogo.addEventListener("mouseover", () => {
 
 // SLIDER
 
-const btnRight = document.querySelectorAll(".btn-right");
-const btnLeft = document.querySelectorAll(".btn-left");
-const cardGameList = document.querySelector(".card-game-list");
-const cardGameList2 = document.querySelector(".card-game-list2");
-const cardGameList3 = document.querySelector(".card-game-list3");
-const lastChild = document.querySelector(".card-game-list li:last-child");
-const lastChild2 = document.querySelector(".card-game-list2 li:last-child");
-const lastChild3 = document.querySelector(".card-game-list3 li:last-child");
-
-let translate = 0;
-let translate2 = 0;
-let translate3 = 0;
-const px = "px";
-const offset = 990; // Valeur de décalage (peut être ajustée selon vos besoins)
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       if (entry.target === lastChild) {
         btnRight[0].style.display = "none";
-        cardGameList.style.left = `initial`;
-        cardGameList.style.transition = "all 1.1s ease-out";
-
-        cardGameList.style.justifyContent = "flex-end";
-        cardGameList.style.paddingRight = "50px";
+        cardGameList.style.left = `${-diffenrence + -40}px`;
+        translate = -diffenrence;
+        console.log(`${-diffenrence + -40}px`);
+        // if (toggleNav.classList[1] == "clicked") {
+        // cardGameList.style.left = `${-diffenrence - dixSeptPourcent}px`;
+        // } else {
+        // cardGameList.style.left = `${-diffenrence + -40}px`;
+        // }
       } else if (entry.target === lastChild2) {
         btnRight[1].style.display = "none";
-        cardGameList2.style.left = `initial`;
-        cardGameList2.style.transition = "all 1.1s ease-out";
-        cardGameList2.style.justifyContent = "flex-end";
-        cardGameList2.style.paddingRight = "50px";
+        cardGameList2.style.left = `${-diffenrence2 + -40}px`;
+        translate2 = -diffenrence2;
+
+        // if (toggleNav.classList[1] == "clicked") {
+        // cardGameList2.style.left = `${-diffenrence2 - dixSeptPourcent}px`;
+        // } else {
+        // cardGameList2.style.left = `${-diffenrence2 + -40}px`;
+        // }
       } else if (entry.target === lastChild3) {
         btnRight[2].style.display = "none";
-        cardGameList3.style.left = `initial`;
-        cardGameList3.style.transition = "all 1.1s ease-out";
-        cardGameList3.style.justifyContent = "flex-end";
-        cardGameList3.style.paddingRight = "50px";
+        cardGameList3.style.left = `${-diffenrence3 + -40}px`;
+        translate3 = -diffenrence3;
+
+        // if (toggleNav.classList[1] == "clicked") {
+        // cardGameList3.style.left = `${-diffenrence3 - dixSeptPourcent}px`;
+        // } else {
+        // cardGameList3.style.left = `${-diffenrence3 + -40}px`;
+        // }
       }
     } else {
       if (entry.target === lastChild) {
         btnRight[0].style.display = "block";
-      } else if (entry.target === lastChild2) { // MODIFIER CE BLOCK IL PEUX ALLER EN HAUT !!!!
+      } else if (entry.target === lastChild2) {
+        // MODIFIER CE BLOCK IL PEUX ALLER EN HAUT !!!!
         btnRight[1].style.display = "block";
       } else if (entry.target === lastChild3) {
         btnRight[2].style.display = "block";
@@ -217,56 +262,6 @@ buttons.forEach((button) => {
   button.style.transition = "opacity 0.35s ease";
 });
 
-const main = document.querySelector(".container-all");
-const navItem = document.querySelector(".toggle-nav");
-const navChoice = document.querySelector(".nav-choice");
-const toggleNav = document.querySelector(".toggle-nav");
-
-navItem.addEventListener("click", () => {
-  if (toggleNav.classList[1] == "clicked") {
-    main.style.gridTemplateColumns = "17% 83%";
-    navChoice.style.left = "0px";
-  } else {
-    main.style.gridTemplateColumns = "0% 100%";
-    navChoice.style.left = "-500px";
-  }
-});
-
-// const input = document.querySelector(".input");
-
-// input.addEventListener('input', (e) => {
-//   // input.addEventListener('submit', () => {
-
-//     console.log(e.target.value);
-
-//   // })
-// })
-// console.log(input);
-const cards = document.querySelectorAll(".cards");
-// const displayChoice = document.querySelector(".choice-navbar-category");
-const forChoice = document.querySelector(".forChoice");
-
-// cards.forEach((card) => {
-//   const value = card.dataset.value; // Accès à dataset.value de la carte
-//   const tendance = card.dataset.tendance; // Accès à dataset.tendance de la carte
-
-//   if (value == "tendance") {
-//     // card.style.display = "none";
-//     const newCard = card;
-//     // displayCategory(newCard);
-//     console.log(newCard);
-//     forChoice.innerHTML += `<li class="cards">
-//     ${newCard.innerHTML}
-//     </li>`;
-//   }
-//   // console.log(card.dataset);
-//   // if (tendance === "true") {
-//   // console.log("Div: ", card);
-//   // console.log("Class: ", card.className);
-//   // Afficher d'autres informations de la carte si nécessaire
-//   // }
-// });
-
 const containerCategory = document.querySelectorAll(".container-card-netflix");
 
 function displayCategory(nameCategory) {
@@ -285,25 +280,20 @@ function displayCategory(nameCategory) {
     btnLeft.forEach((btn) => {
       btn.style.display = "none";
     });
-    console.log(nameCategory);
 
     let cateDisplay = containerCate.dataset.value;
     changeDisplay.style.justifyContent = "center";
     changeDisplay.style.left = "0%";
-
-    cardGameList.style.justifyContent = "flex-start";
-    cardGameList2.style.justifyContent = "flex-start";
-    cardGameList3.style.justifyContent = "flex-start";
 
 
     if (nameCategory !== cateDisplay) {
       containerCate.style.display = "none";
     }
     if (nameCategory === "Accueil") {
-      console.log("dedededededed");
-    //   cardGameList.style.justifyContent = "left";
-    // cardGameList2.style.justifyContent = "left";
-    // cardGameList3.style.justifyContent = "left";
+      translate = 0;
+      translate2 = 0;
+      translate3 = 0;
+
       containerCate.style.display = "block";
       changeDisplay.style.display = "flex";
       changeDisplay.style.flexWrap = "nowrap";
@@ -323,10 +313,14 @@ const allLink = document.querySelectorAll(".link");
 
 allLink.forEach((link) => {
   link.addEventListener("click", (e) => {
-    e.preventDefault();
     const nameCategory = link.querySelector("a").lastChild.data;
+    e.preventDefault();
+    // observer.unobserve(lastChild);
+    // observer.unobserve(lastChild2);
+    // observer.unobserve(lastChild3);
+    observer.disconnect();
+
 
     displayCategory(nameCategory);
-    console.log(nameCategory);
   });
 });
