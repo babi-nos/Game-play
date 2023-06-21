@@ -47,12 +47,12 @@ header {
 header nav {
     position: fixed;
     display: grid;
-    grid-template-columns: 5% 20% 55% 20%;
+    grid-template-columns: 5% 15% 60% 20%;
     align-items: center;
     background: rgba(12, 2, 43, 0.936);
     width: 100%;
     top: 0%;
-    padding: 2px 40px 5px 20px;
+    padding: 02px 20px 5px 10px;
     z-index: 9;
     border-bottom: 1px solid white;
 }
@@ -91,7 +91,7 @@ header nav {
     width: 100%;
     left: -500px;
     bottom: 0px;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.45s ease-in-out;
     /* height: 900px; */
 }
 
@@ -100,35 +100,76 @@ header nav {
     width: 17%;
     height: 95vh;
     background: #0C032B;
-    /* background-color: red; */
-    /* background-color: rgb(4, 6, 52); */
     z-index: 9;
     border-right: 1px solid white;
     display: grid;
-    /* overflow-y: scroll; */
-    /* grid-template-rows: repeat(5%); */
     overflow-y: scroll;
     padding-bottom: 30px;
 }
 
 .insid .link {
     padding: 15px 0 5px 0;
-    /* margin: auto; */
     display: flex;
     align-items: center;
-    /* display: flex; */
+    transform: translateX(0%);
 }
 
 .insid .link svg {
     padding: 0 12px;
     width: 50px;
-    fill: #767676;
+    fill: gray;
+    cursor: pointer;
+}
+
+.insid .link svg:hover{
+    fill: rgb(255, 254, 254);
+    transition: all 0.2s ease-out;
+}
+.insid .link:hover svg{
+    fill: rgb(255, 255, 255);
+    transition: all 0.2s ease-out;
+}
+
+/* .insid .link .svg:hover a{
+    fill: white;
+    background-color: black;
+    transition: all 0.2s ease-out;
+} */
+.link svg:hover~a {
+    /* Styles à appliquer à l'élément <a> lorsque .svg est survolé */
+    /* Ajoutez ici les styles souhaités */
+    transform: translateX(20%) !important;
+    transition: all 0.2s ease-out;
+    font-weight: 900;
+    scale: 1.5 !important;
 }
 
 .insid .link a {
-    font-size: 1.1rem;
     color: white;
+    font-size: 1.1rem;
     letter-spacing: 2px;
+    text-align: left;
+}
+
+.active {
+    transform: translateX(20%) !important;
+    transition: all 0.2s ease-out;
+    font-weight: 900;
+    scale: 1.5 !important;
+}
+
+.active-color {
+    font-weight: 900;
+    text-decoration: underline 0.1rem gray;
+    /* border: 1px solid gray; */
+    /* color: gray !important; */
+
+}
+
+.active-color2 {
+    fill: rgb(255, 255, 255) !important;
+    transition: all 0.2s ease-out;
+
 }
 
 .insid .link-contact {
@@ -279,13 +320,14 @@ header nav {
     position: relative;
     display: grid;
     align-items: center;
-    left: -10%;
+    /* justify-content: center; */
+    /* left: -10%; */
 }
 
 .search-game input {
     position: relative;
-    left: 70%;
-    transform: translateX(-70%);
+    left: 50%;
+    transform: translateX(-50%);
     width: 45%;
     height: 35px;
     border-radius: 50px;
@@ -315,7 +357,7 @@ header nav {
 .search-game svg {
     position: absolute;
     width: 25px;
-    right: 18%;
+    right: 29%;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -624,6 +666,7 @@ header nav {
     width: 100%;
     /* transition: all 0.15s ease-out; */
 }
+
 .container-card-netflix .rows-game .card-game-list4 {
     position: relative;
     display: flex;

@@ -354,13 +354,63 @@ function displayCategory(nameCategory) {
 }
 
 const allLink = document.querySelectorAll(".link");
+const cateChoices = document.querySelectorAll(".link a");
+const svgChoices = document.querySelectorAll(".link svg");
+// const linkContainer = document.querySelectorAll(".link");
 
 allLink.forEach((link) => {
   link.addEventListener("click", (e) => {
     const nameCategory = link.querySelector("a").lastChild.data;
     e.preventDefault();
     observer.disconnect();
+    // link.style.backgroundColor = "none";
 
+    cateChoices.forEach((cate) => {
+      cate.classList.remove("active-color");
+    });
+    svgChoices.forEach((svg) => {
+      svg.classList.remove("active-color2");
+    });
+
+    const svgChoice = link.querySelector(".link svg");
+    svgChoice.classList.add("active-color2");
+
+    const clickedCate = link.querySelector(".link a");
+    clickedCate.classList.add("active-color");
+    // link.classList.add("active-color");
     displayCategory(nameCategory);
+  });
+});
+
+// const cateChoicesA = document.querySelectorAll(".link a");
+// console.log(svgChoices);
+// svgChoices.forEach((svgs) => {
+//   svgs.addEventListener("mouseover", () => {
+//     cateChoices.forEach((cates) => {
+//       cates.classList.add("active");
+//       console.log("yo");
+//     });
+//     svgs.addEventListener("mouseleave", () => {
+//       cateChoices.forEach((cate) => {
+//         cate.classList.remove("active");
+//         console.log("ytttto");
+//       });
+//     });
+//   });
+// });
+
+cateChoices.forEach((cateOther) => {
+  cateOther.addEventListener("mouseover", () => {
+    cateChoices.forEach((cate) => {
+      cate.classList.remove("active");
+    });
+    cateOther.classList.add("active");
+  });
+});
+allLink.forEach((linkCont) => {
+  linkCont.addEventListener("mouseleave", () => {
+    cateChoices.forEach((cate) => {
+      cate.classList.remove("active");
+    });
   });
 });
