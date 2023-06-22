@@ -12,10 +12,22 @@ const cardGameList = document.querySelector(".card-game-list");
 const cardGameList2 = document.querySelector(".card-game-list2");
 const cardGameList3 = document.querySelector(".card-game-list3");
 const cardGameList4 = document.querySelector(".card-game-list4");
+const cardGameList5 = document.querySelector(".card-game-list5");
+const cardGameList6 = document.querySelector(".card-game-list6");
+const cardGameList7 = document.querySelector(".card-game-list7");
+const cardGameList8 = document.querySelector(".card-game-list8");
+const cardGameList9 = document.querySelector(".card-game-list9");
+const cardGameList10 = document.querySelector(".card-game-list10");
 const lastChild = document.querySelector(".card-game-list li:last-child");
 const lastChild2 = document.querySelector(".card-game-list2 li:last-child");
 const lastChild3 = document.querySelector(".card-game-list3 li:last-child");
 const lastChild4 = document.querySelector(".card-game-list4 li:last-child");
+const lastChild5 = document.querySelector(".card-game-list5 li:last-child");
+const lastChild6 = document.querySelector(".card-game-list6 li:last-child");
+const lastChild7 = document.querySelector(".card-game-list7 li:last-child");
+const lastChild8 = document.querySelector(".card-game-list8 li:last-child");
+const lastChild9 = document.querySelector(".card-game-list9 li:last-child");
+const lastChild10 = document.querySelector(".card-game-list10 li:last-child");
 const ul = document.querySelectorAll(".all-game ul");
 const sliderContainer = document.querySelector(".slider");
 
@@ -25,6 +37,12 @@ let translate = 0;
 let translate2 = 0;
 let translate3 = 0;
 let translate4 = 0;
+let translate5 = 0;
+let translate6 = 0;
+let translate7 = 0;
+let translate8 = 0;
+let translate9 = 0;
+let translate10 = 0;
 const px = "px";
 const offset = 990; // Valeur de décalage (peut être ajustée selon vos besoins)
 const largeurEcran = window.innerWidth;
@@ -32,13 +50,26 @@ const width = cardGameList.scrollWidth;
 const width2 = cardGameList2.scrollWidth;
 const width3 = cardGameList3.scrollWidth;
 const width4 = cardGameList4.scrollWidth;
+const width5 = cardGameList5.scrollWidth;
+const width6 = cardGameList6.scrollWidth;
+const width7 = cardGameList7.scrollWidth;
+const width8 = cardGameList8.scrollWidth;
+const width9 = cardGameList9.scrollWidth;
+const width10 = cardGameList10.scrollWidth;
 const diffenrence = width - largeurEcran;
 const diffenrence2 = width2 - largeurEcran;
 const diffenrence3 = width3 - largeurEcran;
 const diffenrence4 = width4 - largeurEcran;
+const diffenrence5 = width5 - largeurEcran;
+const diffenrence6 = width6 - largeurEcran;
+const diffenrence7 = width7 - largeurEcran;
+const diffenrence8 = width8 - largeurEcran;
+const diffenrence9 = width9 - largeurEcran;
+const diffenrence10 = width10 - largeurEcran;
 
 // const largeurEcran = window.innerWidth;
-const pourcentage = 19;
+const pourcentage = 19; // J'ai mis 19 pour avoir 2% de plus que 17 pour avoir de la marge a droit
+
 const dixSeptPourcent = Math.round((pourcentage / 100) * largeurEcran);
 console.log(dixSeptPourcent);
 
@@ -147,11 +178,72 @@ const observer = new IntersectionObserver((entries) => {
         cardGameList4.style.transition = "all 0.4s ease-out";
         btnRight[3].style.display = "none";
         cardGameList4.style.left = `${-diffenrence4 + -40}px`;
-        translate3 = -diffenrence4;
+        translate4 = -diffenrence4;
         if (toggleNav.classList[1] == "clicked") {
           cardGameList4.style.left = `${-diffenrence4 - dixSeptPourcent}px`;
         } else {
           cardGameList4.style.left = `${-diffenrence4 + -40}px`;
+        }
+      } else if (entry.target === lastChild5) {
+        cardGameList5.style.transition = "all 0.4s ease-out";
+        btnRight[4].style.display = "none";
+        cardGameList5.style.left = `${-diffenrence5 + -40}px`;
+        translate5 = -diffenrence5;
+        if (toggleNav.classList[1] == "clicked") {
+          cardGameList5.style.left = `${-diffenrence5 - dixSeptPourcent}px`;
+        } else {
+          cardGameList5.style.left = `${-diffenrence5 + -40}px`;
+        }
+      } else if (entry.target === lastChild6) {
+        cardGameList6.style.transition = "all 0.4s ease-out";
+        btnRight[5].style.display = "none";
+        cardGameList6.style.left = `${-diffenrence5 + -40}px`;
+        translate6 = -diffenrence6;
+        if (toggleNav.classList[1] == "clicked") {
+          cardGameList6.style.left = `${-diffenrence6 - dixSeptPourcent}px`;
+        } else {
+          cardGameList6.style.left = `${-diffenrence6 + -40}px`;
+        }
+      } else if (entry.target === lastChild7) {
+        cardGameList7.style.transition = "all 0.4s ease-out";
+        btnRight[6].style.display = "none";
+        cardGameList7.style.left = `${-diffenrence7 + -40}px`;
+        translate7 = -diffenrence7;
+        if (toggleNav.classList[1] == "clicked") {
+          cardGameList7.style.left = `${-diffenrence7 - dixSeptPourcent}px`;
+        } else {
+          cardGameList7.style.left = `${-diffenrence7 + -40}px`;
+        }
+      } else if (entry.target === lastChild8) {
+        cardGameList8.style.transition = "all 0.4s ease-out";
+        btnRight[7].style.display = "none";
+        cardGameList8.style.left = `${-diffenrence8 + -40}px`;
+        translate8 = -diffenrence8;
+        if (toggleNav.classList[1] == "clicked") {
+          cardGameList8.style.left = `${-diffenrence8 - dixSeptPourcent}px`;
+        } else {
+          cardGameList8.style.left = `${-diffenrence8 + -40}px`;
+        }
+      } else if (entry.target === lastChild9) {
+        console.log('weee');
+        cardGameList9.style.transition = "all 0.4s ease-out";
+        btnRight[8].style.display = "none";
+        cardGameList9.style.left = `${-diffenrence9 + -40}px`;
+        translate9 = -diffenrence9;
+        if (toggleNav.classList[1] == "clicked") {
+          cardGameList9.style.left = `${-diffenrence9 - dixSeptPourcent}px`;
+        } else {
+          cardGameList9.style.left = `${-diffenrence9 + -40}px`;
+        }
+      } else if (entry.target === lastChild10) {
+        cardGameList10.style.transition = "all 0.4s ease-out";
+        btnRight[9].style.display = "none";
+        cardGameList10.style.left = `${-diffenrence10 + -40}px`;
+        translate10 = -diffenrence10;
+        if (toggleNav.classList[1] == "clicked") {
+          cardGameList10.style.left = `${-diffenrence10 - dixSeptPourcent}px`;
+        } else {
+          cardGameList10.style.left = `${-diffenrence10 + -40}px`;
         }
       }
     } else {
@@ -164,6 +256,18 @@ const observer = new IntersectionObserver((entries) => {
         btnRight[2].style.display = "block";
       } else if (entry.target === lastChild4) {
         btnRight[3].style.display = "block";
+      } else if (entry.target === lastChild5) {
+        btnRight[4].style.display = "block";
+      } else if (entry.target === lastChild6) {
+        btnRight[5].style.display = "block";
+      } else if (entry.target === lastChild7) {
+        btnRight[6].style.display = "block";
+      } else if (entry.target === lastChild8) {
+        btnRight[7].style.display = "block";
+      } else if (entry.target === lastChild9) {
+        btnRight[8].style.display = "block";
+      } else if (entry.target === lastChild10) {
+        btnRight[9].style.display = "block";
       }
     }
   });
@@ -195,6 +299,42 @@ btnRight.forEach((btn) => {
       cardGameList4.style.left = translate4 + px;
       btnLeft[3].style.display = "block";
       observer.observe(lastChild4);
+    } else if (this.dataset.value == 4) {
+      cardGameList5.style.transition = "all 0.7s ease-out";
+      translate5 -= offset;
+      cardGameList5.style.left = translate5 + px;
+      btnLeft[4].style.display = "block";
+      observer.observe(lastChild5);
+    } else if (this.dataset.value == 5) {
+      cardGameList6.style.transition = "all 0.7s ease-out";
+      translate6 -= offset;
+      cardGameList6.style.left = translate6 + px;
+      btnLeft[5].style.display = "block";
+      observer.observe(lastChild6);
+    } else if (this.dataset.value == 6) {
+      cardGameList7.style.transition = "all 0.7s ease-out";
+      translate7 -= offset;
+      cardGameList7.style.left = translate7 + px;
+      btnLeft[6].style.display = "block";
+      observer.observe(lastChild7);
+    } else if (this.dataset.value == 7) {
+      cardGameList8.style.transition = "all 0.7s ease-out";
+      translate8 -= offset;
+      cardGameList8.style.left = translate8 + px;
+      btnLeft[7].style.display = "block";
+      observer.observe(lastChild8);
+    } else if (this.dataset.value == 8) {
+      cardGameList9.style.transition = "all 0.7s ease-out";
+      translate9 -= offset;
+      cardGameList9.style.left = translate9 + px;
+      btnLeft[8].style.display = "block";
+      observer.observe(lastChild9);
+    } else if (this.dataset.value == 9) {
+      cardGameList10.style.transition = "all 0.7s ease-out";
+      translate10 -= offset;
+      cardGameList10.style.left = translate10 + px;
+      btnLeft[9].style.display = "block";
+      observer.observe(lastChild10);
     }
   });
 });
@@ -245,6 +385,72 @@ btnLeft.forEach((btnL) => {
         cardGameList4.style.left = "2%";
         btnLeft[3].style.display = "none";
       }
+    } else if (this.dataset.value == 4) {
+      cardGameList5.style.transition = "all 0.7s ease-out";
+      cardGameList5.style.left = `${translate5}px`;
+      cardGameList5.style.justifyContent = "left";
+      translate5 += offset;
+      cardGameList5.style.left = translate5 + px;
+
+      if (translate5 >= 0) {
+        cardGameList5.style.left = "2%";
+        btnLeft[4].style.display = "none";
+      }
+    } else if (this.dataset.value == 5) {
+      cardGameList6.style.transition = "all 0.7s ease-out";
+      cardGameList6.style.left = `${translate6}px`;
+      cardGameList6.style.justifyContent = "left";
+      translate6 += offset;
+      cardGameList6.style.left = translate6 + px;
+
+      if (translate6 >= 0) {
+        cardGameList6.style.left = "2%";
+        btnLeft[5].style.display = "none";
+      }
+    } else if (this.dataset.value == 6) {
+      cardGameList7.style.transition = "all 0.7s ease-out";
+      cardGameList7.style.left = `${translate7}px`;
+      cardGameList7.style.justifyContent = "left";
+      translate7 += offset;
+      cardGameList7.style.left = translate7 + px;
+
+      if (translate7 >= 0) {
+        cardGameList7.style.left = "2%";
+        btnLeft[6].style.display = "none";
+      }
+    } else if (this.dataset.value == 7) {
+      cardGameList8.style.transition = "all 0.7s ease-out";
+      cardGameList8.style.left = `${translate8}px`;
+      cardGameList8.style.justifyContent = "left";
+      translate8 += offset;
+      cardGameList8.style.left = translate8 + px;
+
+      if (translate8 >= 0) {
+        cardGameList8.style.left = "2%";
+        btnLeft[7].style.display = "none";
+      }
+    } else if (this.dataset.value == 8) {
+      cardGameList9.style.transition = "all 0.7s ease-out";
+      cardGameList9.style.left = `${translate9}px`;
+      cardGameList9.style.justifyContent = "left";
+      translate9 += offset;
+      cardGameList9.style.left = translate9 + px;
+
+      if (translate9 >= 0) {
+        cardGameList9.style.left = "2%";
+        btnLeft[8].style.display = "none";
+      }
+    } else if (this.dataset.value == 9) {
+      cardGameList10.style.transition = "all 0.7s ease-out";
+      cardGameList10.style.left = `${translate10}px`;
+      cardGameList10.style.justifyContent = "left";
+      translate10 += offset;
+      cardGameList10.style.left = translate10 + px;
+
+      if (translate10 >= 0) {
+        cardGameList10.style.left = "2%";
+        btnLeft[9].style.display = "none";
+      }
     }
   });
 });
@@ -269,10 +475,36 @@ const showArrow = (containerGame) => {
       btnLeft[3].style.opacity = 1;
       btnRight[3].style.opacity = 1;
       break;
+    case "Football":
+      btnLeft[4].style.opacity = 1;
+      btnRight[4].style.opacity = 1;
+      break;
+    case "Mode":
+      btnLeft[5].style.opacity = 1;
+      btnRight[5].style.opacity = 1;
+      break;
+    case "Course":
+      btnLeft[6].style.opacity = 1;
+      btnRight[6].style.opacity = 1;
+      break;
+    case "Logique":
+      btnLeft[7].style.opacity = 1;
+      btnRight[7].style.opacity = 1;
+      break;
+    case "Cartes":
+      btnLeft[8].style.opacity = 1;
+      btnRight[8].style.opacity = 1;
+      break;
+    case "Tir":
+      btnLeft[9].style.opacity = 1;
+      btnRight[9].style.opacity = 1;
+      break;
     default:
       break;
   }
 };
+
+console.log(btnLeft[4], btnRight[4]);
 
 rowsGame.forEach((rows) => {
   rows.addEventListener("mouseover", () => {
@@ -289,6 +521,19 @@ rowsGame.forEach((rows) => {
       btnRight[2].style.opacity = 0;
       btnLeft[3].style.opacity = 0;
       btnRight[3].style.opacity = 0;
+      btnLeft[4].style.opacity = 0;
+      btnRight[4].style.opacity = 0;
+
+      btnLeft[5].style.opacity = 0;
+      btnRight[5].style.opacity = 0;
+      btnLeft[6].style.opacity = 0;
+      btnRight[6].style.opacity = 0;
+      btnLeft[7].style.opacity = 0;
+      btnRight[7].style.opacity = 0;
+      btnLeft[8].style.opacity = 0;
+      btnRight[8].style.opacity = 0;
+      btnLeft[9].style.opacity = 0;
+      btnRight[9].style.opacity = 0;
     });
   });
 });
