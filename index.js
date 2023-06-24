@@ -18,7 +18,7 @@ const cardGameList7 = document.querySelector(".card-game-list7");
 const cardGameList8 = document.querySelector(".card-game-list8");
 const cardGameList9 = document.querySelector(".card-game-list9");
 const cardGameList10 = document.querySelector(".card-game-list10");
-const lastChild = document.querySelector(".card-game-list li:last-child");
+const lastChild = document.querySelector(".card-game-list .last");
 const lastChild2 = document.querySelector(".card-game-list2 li:last-child");
 const lastChild3 = document.querySelector(".card-game-list3 li:last-child");
 const lastChild4 = document.querySelector(".card-game-list4 li:last-child");
@@ -30,8 +30,7 @@ const lastChild9 = document.querySelector(".card-game-list9 li:last-child");
 const lastChild10 = document.querySelector(".card-game-list10 li:last-child");
 const ul = document.querySelectorAll(".all-game ul");
 const sliderContainer = document.querySelector(".slider");
-
-console.log(ul);
+const sliderContainer2 = document.querySelector(".slider2");
 
 let translate = 0;
 let translate2 = 0;
@@ -225,7 +224,6 @@ const observer = new IntersectionObserver((entries) => {
           cardGameList8.style.left = `${-diffenrence8 + -40}px`;
         }
       } else if (entry.target === lastChild9) {
-        console.log('weee');
         cardGameList9.style.transition = "all 0.4s ease-out";
         btnRight[8].style.display = "none";
         cardGameList9.style.left = `${-diffenrence9 + -40}px`;
@@ -459,7 +457,7 @@ const rowsGame = document.querySelectorAll(".rows-game");
 
 const showArrow = (containerGame) => {
   switch (containerGame) {
-    case "nouveaute":
+    case "Nouveauté":
       btnLeft[0].style.opacity = 1;
       btnRight[0].style.opacity = 1;
       break;
@@ -503,8 +501,6 @@ const showArrow = (containerGame) => {
       break;
   }
 };
-
-console.log(btnLeft[4], btnRight[4]);
 
 rowsGame.forEach((rows) => {
   rows.addEventListener("mouseover", () => {
@@ -550,6 +546,7 @@ const containerCategory = document.querySelectorAll(".container-card-netflix");
 function displayCategory(nameCategory) {
   containerCategory.forEach(function (containerCate) {
     sliderContainer.style.display = "none";
+    sliderContainer2.style.display = "none";
     containerCate.style.display = "block"; // Réinitialiser la propriété display pour tous les éléments
     const changeDisplay = containerCate.querySelector(".displayChoice");
     const title = containerCate.querySelector(".title");
@@ -577,11 +574,12 @@ function displayCategory(nameCategory) {
       containerCate.style.display = "none";
     }
     if (nameCategory === "Accueil") {
-      // translate = 0;
-      // translate2 = 0;
-      //translate3 = 0;
+      translate = 0;
+      translate2 = 0;
+      translate3 = 0;
 
       sliderContainer.style.display = "block";
+      sliderContainer2.style.display = "block";
 
       containerCate.style.display = "block";
       changeDisplay.style.display = "flex";
@@ -659,3 +657,60 @@ allLink.forEach((linkCont) => {
     });
   });
 });
+
+const Allcard = document.querySelectorAll(".cards");
+const newContainerClick = document.querySelector(".new-container-if-click");
+const containerChoice = document.querySelector(".container-choice");
+const otherGameRigth = document.querySelector(".other-game-rigth");
+const otherGameLeft = document.querySelector(".other-game-left");
+
+Allcard.forEach((card) => {
+  card.addEventListener("click", () => {
+    // const cardOfThisCategory = document.querySelectorAll(".card");
+
+    const slideImages = document.querySelectorAll(".slide-images");
+
+    console.log(slideImages);
+    slideImages.forEach((el) => {
+      el.classList.remove("slide-images");
+    });
+
+    const nameofGame = card.querySelector(".name");
+    const cardImgs = card.querySelector(".card img");
+    const nameGame = nameofGame.textContent.trim();
+    const cardImg = cardImgs.src.split("/")[4];
+    // console.log(cardImg);
+
+    newContainerClick.style.display = "grid";
+    containerChoice.innerHTML = `<h3>${nameGame}</h3> <img src="/images/${cardImg}">`;
+    card.style.display = "block";
+    main.style.display = "none";
+    displayOtherGame();
+  });
+});
+
+const displayOtherGame = () => {
+  ul.forEach((div) => {
+    div.addEventListener("click", () => {
+      const na = div.innerHTML.split("</li>");
+      const halfLength = Math.ceil(na.length / 2);
+      const firstHalf = na.slice(0, halfLength).join("</li>");
+      const secondHalf = na.slice(halfLength).join("</li>");
+
+      // console.log(firstHalf); // Première moitié
+      // console.log(secondHalf);
+      // na.style.display = "block";
+      otherGameLeft.innerHTML = `${secondHalf}`; // Utilise le contenu HTML dans innerHTML
+
+      const glow = document.querySelectorAll(".glow");
+
+      glow.forEach((glow) => {
+        glow.style.display = "none";
+      });
+
+      // card.forEach((ca) => {
+      //   ca.classList.remove("big");
+      // });
+    });
+  });
+};

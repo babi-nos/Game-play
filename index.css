@@ -426,6 +426,7 @@ header nav {
     overflow: hidden;
     padding: 25px 0 5px 0;
 }
+
 .slider2 {
     display: grid;
     justify-content: flex-end;
@@ -476,6 +477,7 @@ header nav {
 .scroll-holder .scroll-tray:last-child {
     animation: scroll-tray-hero 65s linear infinite;
 }
+
 @keyframes scroll-tray-hero {
     0% {
         transform: translateX(0);
@@ -495,6 +497,7 @@ header nav {
 
     }
 }
+
 .slider2 .scroll-holder .scroll-tray:last-child {
     animation: scroll-tray-hero2 65s linear infinite;
 }
@@ -754,11 +757,12 @@ header nav {
     position: relative;
     perspective: 1000px;
     width: 220px;
-    height: 120px; /* A MODIFIER QUAND JE REDUIT VERS 1500px */
+    height: 120px;
+    /* A MODIFIER QUAND JE REDUIT VERS 1500px */
     cursor: pointer;
 }
 
-.container-card-netflix .nouveaute .card.big {
+.container-card-netflix .Nouveauté .card.big {
     position: relative;
     perspective: 8000px;
     width: 380px;
@@ -795,6 +799,7 @@ header nav {
     background-color: rgba(138, 138, 138, 0.134);
     margin-top: -0px;
     font-size: 0.8rem;
+    cursor: pointer;
 }
 
 .cards:hover {
@@ -811,5 +816,108 @@ header nav {
     letter-spacing: 1px;
 }
 
+
+/* IF CLICK  */
+.if-click {
+    height: calc(100vh - 78px);
+
+}
+
+.new-container-if-click {
+    display: none;
+    /* height: calc(100vh - 78px); 78px est la hauteur de la navbar */
+    width: 100%;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+}
+
+.other-game-right {
+    position: relative;
+    /* flex-basis: 25%; */
+}
+
+.other-game-left {
+    position: relative;
+    display: grid;
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    /* flex-basis: 25%; */
+    height: auto;
+}
+
+.other-game-left .slide-images {
+    position: relative;
+    /* width: 70%; */
+    margin: 0;
+    padding: 0;
+
+}
+
+.other-game-left .cards {
+    position: relative;
+    width: 200px;
+    /* height: 150px; */
+    margin: 0;
+    padding: 0;
+}
+
+.other-game-left img {
+    position: relative;
+    width: 100%;
+}
+
+.container-choice {
+    /* flex-basis: 50%; */
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 25px 0;
+    margin: auto 10px;
+}
+
+.container-choice h3 {
+    font-size: 2.5rem;
+}
+
+.container-choice img {
+    width: 90%;
+}
+
+
+.if-click .slider2 {
+    display: grid;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: 25px 0 5px 0;
+}
+
+.if-click .slider2 img {
+    width: 100%;
+    height: 120px;
+}
+
+.if-click .slider2 .scroll-holder .scroll-tray:last-child {
+    animation: scroll-tray-hero3 35s linear infinite;
+}
+
+@keyframes scroll-tray-hero3 {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    99.99% {
+        transform: translateX(-2850px);
+    }
+
+    100% {
+        transform: translateX(0);
+
+    }
+}
 
 /* couRage le rat */
