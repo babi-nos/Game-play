@@ -506,6 +506,7 @@ rowsGame.forEach((rows) => {
   rows.addEventListener("mouseover", () => {
     const containerGame = rows.classList[1];
     showArrow(containerGame);
+    console.log(containerGame);
   });
   rowsGame.forEach((rows) => {
     rows.addEventListener("mouseleave", () => {
@@ -599,14 +600,12 @@ function displayCategory(nameCategory) {
 const allLink = document.querySelectorAll(".link");
 const cateChoices = document.querySelectorAll(".link a");
 const svgChoices = document.querySelectorAll(".link svg");
-// const linkContainer = document.querySelectorAll(".link");
 
 allLink.forEach((link) => {
   link.addEventListener("click", (e) => {
     const nameCategory = link.querySelector("a").lastChild.data;
     e.preventDefault();
     observer.disconnect();
-    // link.style.backgroundColor = "none";
 
     cateChoices.forEach((cate) => {
       cate.classList.remove("active-color");
@@ -620,27 +619,10 @@ allLink.forEach((link) => {
 
     const clickedCate = link.querySelector(".link a");
     clickedCate.classList.add("active-color");
-    // link.classList.add("active-color");
     displayCategory(nameCategory);
   });
 });
 
-// const cateChoicesA = document.querySelectorAll(".link a");
-// console.log(svgChoices);
-// svgChoices.forEach((svgs) => {
-//   svgs.addEventListener("mouseover", () => {
-//     cateChoices.forEach((cates) => {
-//       cates.classList.add("active");
-//       console.log("yo");
-//     });
-//     svgs.addEventListener("mouseleave", () => {
-//       cateChoices.forEach((cate) => {
-//         cate.classList.remove("active");
-//         console.log("ytttto");
-//       });
-//     });
-//   });
-// });
 
 cateChoices.forEach((cateOther) => {
   cateOther.addEventListener("mouseover", () => {
@@ -663,29 +645,55 @@ const newContainerClick = document.querySelector(".new-container-if-click");
 const containerChoice = document.querySelector(".container-choice");
 const otherGameRigth = document.querySelector(".other-game-rigth");
 const otherGameLeft = document.querySelector(".other-game-left");
+const displayGame = document.querySelector(".if-click");
+
+
+rowsGame.forEach((rows) => {
+  rows.addEventListener("mousemove", () => {
+    containerGame = rows.classList[1];
+  });
+});
 
 Allcard.forEach((card) => {
   card.addEventListener("click", () => {
-    // const cardOfThisCategory = document.querySelectorAll(".card");
+    if (containerGame) {
+      // Code pour afficher les informations du jeu avec la valeur de containerGame
+      displayGame.style.display = "block";
+      const slideImagesDivs = document.querySelectorAll(".slide-images");
+      slideImagesDivs.forEach(function (div) {
+        while (div.firstChild) {
+          div.parentNode.insertBefore(div.firstChild, div);
+        }
+        div.remove();
+      });
 
-    const slideImages = document.querySelectorAll(".slide-images");
+      const nameofGame = card.querySelector(".name");
+      const cardImgs = card.querySelector(".card img");
+      const nameGame = nameofGame.textContent.trim();
+      const cardImg = cardImgs.src.split("/")[4];
 
-    console.log(slideImages);
-    slideImages.forEach((el) => {
-      el.classList.remove("slide-images");
-    });
+      newContainerClick.style.display = "grid";
 
-    const nameofGame = card.querySelector(".name");
-    const cardImgs = card.querySelector(".card img");
-    const nameGame = nameofGame.textContent.trim();
-    const cardImg = cardImgs.src.split("/")[4];
-    // console.log(cardImg);
+      containerChoice.innerHTML += `<h3>${nameGame}</h3> <img src="/images/${cardImg}"> 
+        <div class="infos">
+          <div class="infosFirst">
+            <p>Name: ${nameGame}</p>
+            <p>Développeur: ${nameGame} Production</p>
+          </div>
+          <div class="infosFirst">
+          <p>Category: ${containerGame}</p>
+          <p>Technology: HTML/CSS/JS</p>
+          </div>
+          <div class="infosFirst">
+            <p>création: 2022/2023</p>
+            <p>Dernière MAJ: 2022/2023</p>
+          </div>
+        </div>`;
 
-    newContainerClick.style.display = "grid";
-    containerChoice.innerHTML = `<h3>${nameGame}</h3> <img src="/images/${cardImg}">`;
-    card.style.display = "block";
-    main.style.display = "none";
-    displayOtherGame();
+      card.style.display = "block";
+      main.style.display = "none";
+      displayOtherGame();
+    }
   });
 });
 
@@ -693,14 +701,18 @@ const displayOtherGame = () => {
   ul.forEach((div) => {
     div.addEventListener("click", () => {
       const na = div.innerHTML.split("</li>");
-      const halfLength = Math.ceil(na.length / 2);
-      const firstHalf = na.slice(0, halfLength).join("</li>");
-      const secondHalf = na.slice(halfLength).join("</li>");
+      const length = na.length;
+      const oneThirdLength = Math.ceil(length / 3);
+      const twoThirdsLength = oneThirdLength * 2;
 
-      // console.log(firstHalf); // Première moitié
-      // console.log(secondHalf);
-      // na.style.display = "block";
-      otherGameLeft.innerHTML = `${secondHalf}`; // Utilise le contenu HTML dans innerHTML
+      const firstThird = na.slice(0, oneThirdLength).join("</li>");
+      const secondThird = na
+        .slice(oneThirdLength, twoThirdsLength)
+        .join("</li>");
+      const lastThird = na.slice(twoThirdsLength).join("</li>");
+
+      otherGameLeft.innerHTML = `${firstThird}`; // Utilise le contenu HTML dans innerHTML
+      otherGameRigth.innerHTML = `${secondThird}`; // Utilise le contenu HTML dans innerHTML
 
       const glow = document.querySelectorAll(".glow");
 
@@ -708,9 +720,8 @@ const displayOtherGame = () => {
         glow.style.display = "none";
       });
 
-      // card.forEach((ca) => {
-      //   ca.classList.remove("big");
-      // });
+      
     });
   });
 };
+

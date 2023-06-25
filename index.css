@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Gasoek+One&display=swap');
 
 * {
     margin: 0;
@@ -34,7 +35,8 @@ body {
 
 header {
     position: relative;
-    font-family: 'Playfair Display SC', serif;
+    /* font-family: 'Playfair Display SC', serif; */
+    
     color: rgb(255, 255, 255);
     font-size: 2rem;
     text-align: center;
@@ -819,6 +821,7 @@ header nav {
 
 /* IF CLICK  */
 .if-click {
+    display: none;
     height: calc(100vh - 78px);
 
 }
@@ -831,6 +834,10 @@ header nav {
     grid-template-columns: 15% 70% 15%;
 }
 
+.new-container-if-click .card {
+    cursor: pointer;
+}
+
 .other-game-right {
     position: relative;
     /* flex-basis: 25%; */
@@ -839,40 +846,77 @@ header nav {
 .other-game-left {
     position: relative;
     display: grid;
-    /* flex-wrap: wrap; */
-    /* justify-content: center; */
-    /* flex-basis: 25%; */
-    height: auto;
+    margin: 0 auto;
+    padding-top: 20px;
+    /* overflow: hidden; */
 }
 
-.other-game-left .slide-images {
+.other-game-rigth {
+    position: relative;
+    display: grid;
+    margin: auto;
+    padding-top: 20px;
+    /* overflow: hidden; */
+}
+
+/* .other-game-left .slide-images {
     position: relative;
     /* width: 70%; */
+/* margin: 0; */
+/* padding: 0; 
+
+} */
+/* .other-game-right .slide-images {
+    position: relative;
+    width: 70%;
     margin: 0;
     padding: 0;
 
-}
-
+} */
 .other-game-left .cards {
     position: relative;
-    width: 200px;
-    /* height: 150px; */
+    width: 180px;
+    height: 100%;
     margin: 0;
     padding: 0;
+    color: white;
+    color: rgba(255, 255, 255, 0.463);
+
 }
 
+.other-game-rigth .cards {
+    position: relative;
+    width: 180px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.463);
+    margin: 5px 0;
+    /* height: 100%; */
+}
 .other-game-left img {
     position: relative;
     width: 100%;
 }
 
+.other-game-rigth img {
+    position: relative;
+    width: 100%;
+}
+body > div.if-click > div > div.container-choice > h3{
+    font-family: 'Gasoek One', sans-serif;
+    letter-spacing: 3px;
+    color: #cecece;
+
+}
 .container-choice {
     /* flex-basis: 50%; */
     position: relative;
     text-align: center;
     color: white;
     padding: 25px 0;
-    margin: auto 10px;
+    margin: 35px 10px;
+
 }
 
 .container-choice h3 {
@@ -883,12 +927,44 @@ header nav {
     width: 90%;
 }
 
+.new-container-if-click .container-choice .infos {
+    position: relative;
+    width: 90%;
+    height: 250px;
+    background-color: #1a0f41;
+    border: 3px solid black;
+    border-top: none;
+    margin: auto;
+    padding: 10px 50px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    text-align: left;
+
+}
+
+/* .new-container-if-click .container-choice .infos .infosFirst{
+    display: flex;
+    justify-content:;
+
+} */
+/* .new-container-if-click .container-choice .infos .infosLast{
+    display: flex;
+    justify-content: space-around;
+} */
+.new-container-if-click .container-choice .infos p {
+    position: relative;
+    margin: 15px 0;
+    font-weight: 900;
+
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
 
 .if-click .slider2 {
     display: grid;
     justify-content: flex-end;
     overflow: hidden;
-    padding: 25px 0 5px 0;
+    padding: 25px 0 15px 0;
 }
 
 .if-click .slider2 img {
