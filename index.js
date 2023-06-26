@@ -70,7 +70,6 @@ const diffenrence10 = width10 - largeurEcran;
 const pourcentage = 19; // J'ai mis 19 pour avoir 2% de plus que 17 pour avoir de la marge a droit
 
 const dixSeptPourcent = Math.round((pourcentage / 100) * largeurEcran);
-console.log(dixSeptPourcent);
 
 const cards = document.querySelectorAll(".cards");
 const forChoice = document.querySelector(".forChoice");
@@ -79,21 +78,14 @@ btnNavbar.addEventListener("click", () => {
   btnNavbar.classList.toggle("clicked");
 });
 
-navItem.addEventListener("click", () => {
-  if (toggleNav.classList[1] == "clicked") {
-    main.style.gridTemplateColumns = "17% 83%";
-    navChoice.style.left = "0px";
-  } else {
-    main.style.gridTemplateColumns = "0% 100%";
-    navChoice.style.left = "-500px";
-  }
-});
+// const ifClick = document.querySelector(".if-click");
 
 // CARD EFECT CARD
 
 card.forEach((el) => {
   el.addEventListener("mousemove", (e) => {
     let elRect = el.getBoundingClientRect();
+    // console.log(el.children[1]);
 
     let x = e.clientX - elRect.x;
     let y = e.clientY - elRect.y;
@@ -101,8 +93,8 @@ card.forEach((el) => {
     let midCardWidth = elRect.width / 2;
     let midCardheight = elRect.height / 2;
 
-    let angleY = -(x - midCardWidth) / 5; //ATTTION ON PEUX MODIFIER LE 8 ET TROUVER L'ANGLE PARFAIT
-    let angleX = (y - midCardheight) / 5;
+    let angleY = -(x - midCardWidth) / 6; //ATTTION ON PEUX MODIFIER LE 8 ET TROUVER L'ANGLE PARFAIT
+    let angleX = (y - midCardheight) / 6;
 
     let glowX = (x / elRect.width) * 100;
     let glowY = (y / elRect.height) * 100;
@@ -113,6 +105,10 @@ card.forEach((el) => {
   });
 
   el.addEventListener("mouseleave", (e) => {
+    el.children[0].style.transform = `rotateX(0deg)  rotateY(0deg)`;
+    el.children[1].style.transform = `rotateX(0deg)  rotateY(0deg)`;
+  });
+  el.addEventListener("click", (e) => {
     el.children[0].style.transform = `rotateX(0deg)  rotateY(0deg)`;
     el.children[1].style.transform = `rotateX(0deg)  rotateY(0deg)`;
   });
@@ -146,7 +142,6 @@ const observer = new IntersectionObserver((entries) => {
         btnRight[0].style.display = "none";
         cardGameList.style.left = `${-diffenrence + -40}px`;
         translate = -diffenrence;
-        console.log(`${-diffenrence + -40}px`);
         if (toggleNav.classList[1] == "clicked") {
           cardGameList.style.left = `${-diffenrence - dixSeptPourcent}px`;
         } else {
@@ -506,7 +501,6 @@ rowsGame.forEach((rows) => {
   rows.addEventListener("mouseover", () => {
     const containerGame = rows.classList[1];
     showArrow(containerGame);
-    console.log(containerGame);
   });
   rowsGame.forEach((rows) => {
     rows.addEventListener("mouseleave", () => {
@@ -594,8 +588,25 @@ function displayCategory(nameCategory) {
         btn.style.display = "block";
       });
     }
+    if (nameCategory === "Aléatoire") {
+      // console.log(tab.length);
+      randomNumber(0, 10);
+    }
   });
 }
+const allLinknav = document.querySelectorAll(".container-all .link a");
+const tab = [];
+
+allLinknav.forEach((aL) => {
+  tab.push(aL.innerHTML);
+});
+
+function randomNumber(min, max) {
+  let numberRandom = Math.floor(Math.random() * (max - min + 1) + min);
+  let nameRandom = tab[numberRandom];
+  displayCategory(nameRandom);
+}
+
 
 const allLink = document.querySelectorAll(".link");
 const cateChoices = document.querySelectorAll(".link a");
@@ -623,7 +634,6 @@ allLink.forEach((link) => {
   });
 });
 
-
 cateChoices.forEach((cateOther) => {
   cateOther.addEventListener("mouseover", () => {
     cateChoices.forEach((cate) => {
@@ -647,7 +657,6 @@ const otherGameRigth = document.querySelector(".other-game-rigth");
 const otherGameLeft = document.querySelector(".other-game-left");
 const displayGame = document.querySelector(".if-click");
 
-
 rowsGame.forEach((rows) => {
   rows.addEventListener("mousemove", () => {
     containerGame = rows.classList[1];
@@ -659,13 +668,7 @@ Allcard.forEach((card) => {
     if (containerGame) {
       // Code pour afficher les informations du jeu avec la valeur de containerGame
       displayGame.style.display = "block";
-      const slideImagesDivs = document.querySelectorAll(".slide-images");
-      slideImagesDivs.forEach(function (div) {
-        while (div.firstChild) {
-          div.parentNode.insertBefore(div.firstChild, div);
-        }
-        div.remove();
-      });
+     
 
       const nameofGame = card.querySelector(".name");
       const cardImgs = card.querySelector(".card img");
@@ -674,7 +677,7 @@ Allcard.forEach((card) => {
 
       newContainerClick.style.display = "grid";
 
-      containerChoice.innerHTML += `<h3>${nameGame}</h3> <img src="/images/${cardImg}"> 
+      containerChoice.innerHTML = `<h3>${nameGame}</h3> <img src="/images/${cardImg}"> 
         <div class="infos">
           <div class="infosFirst">
             <p>Name: ${nameGame}</p>
@@ -720,8 +723,44 @@ const displayOtherGame = () => {
         glow.style.display = "none";
       });
 
-      
+      card.forEach((el) => {
+        el.children[0].style.transform = `rotateX(0deg)  rotateY(0deg)`;
+        el.children[1].style.transform = `rotateX(0deg)  rotateY(0deg)`;
+        // console.log(el);
+      });
     });
   });
 };
 
+const navChoiceIfClick = document.querySelector(".if-click .nav-choice");
+
+navItem.addEventListener("click", () => {
+  if (toggleNav.classList[1] == "clicked") {
+    main.style.gridTemplateColumns = "17% 83%";
+    // displayGame.gridTemplateColumns = "17% 83%";
+    navChoice.style.left = "0px";
+    navChoiceIfClick.style.left = "0px";
+
+    allLink.forEach((lk) => {
+      lk.addEventListener("click", () => {
+        const nameCategorys = lk.querySelector("a").lastChild.data;
+
+        main.style.display = "grid";
+        displayGame.style.display = "none";
+
+        const glow = document.querySelectorAll(".glow");
+        glow.forEach((glow) => {
+          glow.style.display = "block";
+        });
+
+        navChoice.style.left = "-500px";
+        navChoiceIfClick.style.left = "-500px";
+        displayCategory(nameCategorys);
+      });
+    });
+  } else {
+    main.style.gridTemplateColumns = "0% 100%";
+    navChoice.style.left = "-500px";
+    navChoiceIfClick.style.left = "-500px";
+  }
+});
