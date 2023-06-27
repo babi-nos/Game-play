@@ -429,7 +429,7 @@ header nav {
     padding: 25px 0 5px 0;
 }
 
-.slider2 .scroll-holder{
+.slider2 .scroll-holder {
     display: grid;
     justify-content: flex-end;
     overflow: hidden;
@@ -550,6 +550,10 @@ header nav {
     font-weight: 900;
 }
 
+.container-card-netflix h3 span {
+    color: rgba(52, 52, 52, 0.752);
+}
+
 .container-card-netflix h3::after {
     content: "";
     position: absolute;
@@ -645,7 +649,7 @@ header nav {
     display: flex;
     justify-content: left;
     left: 2%;
-    gap: 5px;
+    gap: 9px;
     color: white;
     width: 100%;
     /* padding-bottom: 5px; */
@@ -658,7 +662,7 @@ header nav {
     display: flex;
     justify-content: left;
     left: 2%;
-    gap: 5px;
+    gap: 9px;
     text-align: center;
     width: 100%;
     /* transition: all 0.15s ease-out; */
@@ -669,7 +673,7 @@ header nav {
     display: flex;
     justify-content: left;
     left: 2%;
-    gap: 5px;
+    gap: 9px;
     text-align: center;
     color: white;
     width: 100%;
@@ -681,7 +685,7 @@ header nav {
     display: flex;
     justify-content: left;
     left: 2%;
-    gap: 5px;
+    gap: 9px;
     text-align: center;
     color: white;
     width: 100%;
@@ -693,7 +697,7 @@ header nav {
     display: flex;
     justify-content: left;
     left: 2%;
-    gap: 5px;
+    gap: 9px;
     text-align: center;
     width: 100%;
     /* transition: all 0.15s ease-out; */
@@ -704,7 +708,7 @@ header nav {
     display: flex;
     justify-content: left;
     left: 2%;
-    gap: 5px;
+    gap: 9px;
     text-align: center;
     width: 100%;
     /* transition: all 0.15s ease-out; */
@@ -715,7 +719,7 @@ header nav {
     display: flex;
     justify-content: left;
     left: 2%;
-    gap: 5px;
+    gap: 9px;
     text-align: center;
     width: 100%;
     /* transition: all 0.15s ease-out; */
@@ -726,7 +730,7 @@ header nav {
     display: flex;
     justify-content: left;
     left: 2%;
-    gap: 5px;
+    gap: 9px;
     text-align: center;
     width: 100%;
     /* transition: all 0.15s ease-out; */
@@ -737,7 +741,7 @@ header nav {
     display: flex;
     justify-content: left;
     left: 2%;
-    gap: 5px;
+    gap: 9px;
     text-align: center;
     width: 100%;
     /* transition: all 0.15s ease-out; */
@@ -748,7 +752,7 @@ header nav {
     display: flex;
     justify-content: left;
     left: 2%;
-    gap: 5px;
+    gap: 9px;
     text-align: center;
     width: 100%;
     /* transition: all 0.15s ease-out; */
@@ -764,6 +768,107 @@ header nav {
     cursor: pointer;
 }
 
+/* TOP RATED */
+
+.card.top-rated::after {
+    position: absolute;
+    content: "Top-rated";
+    top: -4px;
+    left: -7px;
+    width: 65px;
+    text-align: left;
+    height: 22.2px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 5px;
+    clip-path: polygon(0 0, 100% 0%, 100% 66%, 9% 66%, 0 81%);
+    color: rgb(68, 68, 68);
+    font-weight: 900 !important;
+    font-size: 0.8rem;
+    padding-left: 5px;
+    padding-bottom: 1px;
+    background: linear-gradient(90deg, rgb(255, 225, 0) 0%, rgb(201, 171, 5) 100%);
+    animation: fadeOpacity 0.35s forwards;
+
+}
+
+
+
+.card.top-rated::before {
+    position: absolute;
+    content: "";
+    top: 11.3px;
+    left: -7px;
+    width: 7px;
+    height: 6px;
+    background-color: rgb(96, 87, 32);
+    background: linear-gradient(160deg, rgb(115, 107, 36) 0%, rgb(231, 197, 0) 100%);
+
+    border-top-left-radius: 1550px;
+    border-bottom-left-radius: 1550px;
+    z-index: 1;
+    animation: fadeOpacity 0.35s forwards;
+
+}
+
+/* NEW */
+.card.new::after {
+    position: absolute;
+    content: "New";
+    top: -4px;
+    left: -7px;
+    width: 40px;
+    text-align: left;
+    height: 22px;
+
+    /* background-color: rgb(255,220,19); */
+    /* background-color: hsl(60, 25%, 80%); */
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 20px;
+    /* border-bottom-left-radius: 3px; */
+    border-top-left-radius: 5px;
+    clip-path: polygon(0 0, 100% 0%, 100% 66%, 9% 66%, 0 81%);
+    /* clip-path: polygon(0 0, 100% 0%, 100% 66%, 8% 66%, 0 94%); */
+    color: rgb(255, 255, 255);
+    font-weight: 900 !important;
+    font-size: 0.8rem;
+    padding-left: 5px;
+    padding-bottom: 1px;
+    /* z-index: -2; */
+    /* border: 1px solid rgb(231, 11, 11); */
+
+    /* transform: skew(-5deg);  */
+    background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(128, 80, 80) 100%);
+    animation: fadeOpacity 0.35s forwards;
+
+}
+
+.card.new::before {
+    position: absolute;
+    content: "";
+    top: 11px;
+    left: -7px;
+    width: 7px;
+    height: 6px;
+    background: linear-gradient(90deg, rgb(75, 37, 37) 0%, rgba(209, 7, 7, 0.881) 100%);
+
+    border-top-left-radius: 1550px;
+    border-bottom-left-radius: 1550px;
+    z-index: 1;
+    animation: fadeOpacity 0.35s forwards;
+
+}
+
+@keyframes fadeOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
 .container-card-netflix .Nouveauté .card.big {
     position: relative;
     /* perspective: 1000px; */
@@ -831,7 +936,7 @@ header nav {
     height: calc(100vh - 78px);
     /* display: grid; */
     grid-template-columns: 0% 100%;
-    
+
 }
 
 .new-container-if-click {
@@ -842,9 +947,11 @@ header nav {
     grid-template-columns: 15% 70% 15%;
 }
 
-.new-container-if-click .card {
+/* .new-container-if-click .card {
     cursor: pointer;
-}
+    width: 220px;
+    height: 120px;
+} */
 
 .other-game-right {
     position: relative;
@@ -869,24 +976,11 @@ header nav {
 
 .slide-images {
     /* background-color: red; */
-    display: flex ;
+    display: flex;
     flex-direction: column;
     /* display: block !important; */
 }
-/* .other-game-left .slide-images {
-    position: relative;
-    /* width: 70%; */
-/* margin: 0; */
-/* padding: 0; 
 
-} */
-/* .other-game-right .slide-images {
-    position: relative;
-    width: 70%;
-    margin: 0;
-    padding: 0;
-
-} */
 .other-game-left .cards {
     position: relative;
     width: 180px;

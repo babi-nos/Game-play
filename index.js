@@ -114,6 +114,36 @@ card.forEach((el) => {
   });
 });
 
+const cardBeforeAfterRated = document.querySelectorAll(".card.top-rated");
+const cardBeforeAfterNew = document.querySelectorAll(".card.new");
+
+// console.log(cardBeforeAfterRated);
+// const cards = document.querySelectorAll('.card');
+
+card.forEach((el) => {
+  el.addEventListener("mouseover", () => {
+    const classLi = el.classList[1];
+    if (classLi === "top-rated") {
+      el.classList.remove(classLi);
+      el.classList.add("topRatedHidden");
+    } else if (classLi === "new") {
+      el.classList.remove(classLi);
+      el.classList.add("newHidden");
+    }
+  });
+
+  el.addEventListener("mouseleave", () => {
+    const classLi = el.classList[1];
+    if (classLi === "topRatedHidden") {
+      el.classList.add("top-rated");
+      el.classList.remove("topRatedHidden");
+    } else if (classLi === "newHidden") {
+      el.classList.add("new");
+      el.classList.remove("newHidden");
+    }
+  });
+});
+
 // AUDIO LOGO
 
 const audio = new Audio();
@@ -607,7 +637,6 @@ function randomNumber(min, max) {
   displayCategory(nameRandom);
 }
 
-
 const allLink = document.querySelectorAll(".link");
 const cateChoices = document.querySelectorAll(".link a");
 const svgChoices = document.querySelectorAll(".link svg");
@@ -668,7 +697,6 @@ Allcard.forEach((card) => {
     if (containerGame) {
       // Code pour afficher les informations du jeu avec la valeur de containerGame
       displayGame.style.display = "block";
-     
 
       const nameofGame = card.querySelector(".name");
       const cardImgs = card.querySelector(".card img");
@@ -764,3 +792,24 @@ navItem.addEventListener("click", () => {
     navChoiceIfClick.style.left = "-500px";
   }
 });
+
+let tabNameGame = [];
+
+cards.forEach((crd) => {
+  // tabNameGame = crd;
+  nameGameSearch = crd.querySelectorAll("h2")[0].innerHTML;
+  tabNameGame.push(nameGameSearch);
+});
+
+// console.log(tabNameGame);
+
+const input = document.querySelector(".input");
+
+const liveTaping = () => {
+  input.addEventListener("input", (e) => {
+    let eTarget = e.target.value;
+    console.log(tabNameGame);
+  });
+};
+
+liveTaping();
