@@ -794,21 +794,92 @@ navItem.addEventListener("click", () => {
 });
 
 let tabNameGame = [];
+let imgCarteTab = [];
+
+let combinedData = [];
 
 cards.forEach((crd) => {
-  // tabNameGame = crd;
   nameGameSearch = crd.querySelectorAll("h2")[0].innerHTML;
-  tabNameGame.push(nameGameSearch);
+  const imgCartes = crd.querySelectorAll("img");
+
+  tabNameGame.push(nameGameSearch.toLowerCase());
+  imgCarteTab.push(imgCartes);
 });
 
-// console.log(tabNameGame);
+// Vérifier si les deux tableaux ont la même longueur
+if (tabNameGame.length === imgCarteTab.length) {
+  for (let i = 0; i < tabNameGame.length; i++) {
+    let data = {
+      nameGame: tabNameGame[i],
+      imgCarte: imgCarteTab[i],
+    };
+    combinedData.push(data);
+  }
+} else {
+  console.log("Les tableaux n'ont pas la même longueur.");
+}
 
 const input = document.querySelector(".input");
+const getGame = document.querySelector(".search-input");
+
+const displayGameInput = (x) => {
+  // console.log(x);
+  main.style.display = "none";
+  displayGame.style.display = "grid";
+  containerChoice.innerHTML = ""; // Effacer le contenu existant du conteneur
+  containerChoice.appendChild(x);
+  getGame.style.display = "none";
+  input.value = ""
+};
 
 const liveTaping = () => {
   input.addEventListener("input", (e) => {
-    let eTarget = e.target.value;
-    console.log(tabNameGame);
+    let eTarget = e.target.value.toLowerCase();
+
+    let matchingGames = combinedData.filter((data) =>
+      data.nameGame.includes(eTarget)
+    );
+
+    let uniqueGames = new Set();
+    let uniqueImages = [];
+
+    matchingGames.forEach((gameData) => {
+      const gameName = gameData.nameGame;
+      const images = gameData.imgCarte;
+
+      if (!uniqueGames.has(gameName)) {
+        uniqueGames.add(gameName);
+        uniqueImages.push(images);
+      }
+    });
+
+    getGame.style.display = "block";
+    getGame.innerHTML = Array.from(uniqueGames)
+      .map((gameName, index) => {
+        const images = uniqueImages[index];
+
+        const imagesHTML = Array.from(images)
+          .map((image) => `<img src="${image.src}" alt="${image.alt}" />`)
+          .join("");
+
+        return `<div class="displaySearch">
+                  ${imagesHTML}
+                  <p>${gameName}</p>
+                </div>`;
+      })
+      .join("");
+
+    if (eTarget === "") {
+      getGame.style.display = "none";
+    }
+
+    const displaySearch = document.querySelectorAll(".displaySearch");
+    displaySearch.forEach((dsearch) => {
+      dsearch.addEventListener("click", () => {
+        displayGameInput(dsearch);
+      });
+    });
+    // console.log(displaySearch);
   });
 };
 
