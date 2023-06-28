@@ -78,6 +78,12 @@ btnNavbar.addEventListener("click", () => {
   btnNavbar.classList.toggle("clicked");
 });
 
+const returnTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 // const ifClick = document.querySelector(".if-click");
 
 // CARD EFECT CARD
@@ -117,9 +123,6 @@ card.forEach((el) => {
 const cardBeforeAfterRated = document.querySelectorAll(".card.top-rated");
 const cardBeforeAfterNew = document.querySelectorAll(".card.new");
 
-// console.log(cardBeforeAfterRated);
-// const cards = document.querySelectorAll('.card');
-
 card.forEach((el) => {
   el.addEventListener("mouseover", () => {
     const classLi = el.classList[1];
@@ -129,6 +132,9 @@ card.forEach((el) => {
     } else if (classLi === "new") {
       el.classList.remove(classLi);
       el.classList.add("newHidden");
+    } else if (classLi === "updated") {
+      el.classList.remove(classLi);
+      el.classList.add("update");
     }
   });
 
@@ -140,6 +146,9 @@ card.forEach((el) => {
     } else if (classLi === "newHidden") {
       el.classList.add("new");
       el.classList.remove("newHidden");
+    } else if (classLi === "update") {
+      el.classList.add("updated");
+      el.classList.remove("update");
     }
   });
 });
@@ -620,7 +629,7 @@ function displayCategory(nameCategory) {
     }
     if (nameCategory === "Aléatoire") {
       // console.log(tab.length);
-      randomNumber(0, 10);
+      randomNumber(1, 10);
     }
   });
 }
@@ -660,6 +669,7 @@ allLink.forEach((link) => {
     const clickedCate = link.querySelector(".link a");
     clickedCate.classList.add("active-color");
     displayCategory(nameCategory);
+    returnTop();
   });
 });
 
@@ -724,6 +734,7 @@ Allcard.forEach((card) => {
       card.style.display = "block";
       main.style.display = "none";
       displayOtherGame();
+      returnTop();
     }
   });
 });
@@ -824,18 +835,139 @@ const getGame = document.querySelector(".search-input");
 
 const displayGameInput = (x) => {
   // console.log(x);
+  const nameP = x.querySelector(".search-input h4").innerHTML;
   main.style.display = "none";
   displayGame.style.display = "grid";
   containerChoice.innerHTML = ""; // Effacer le contenu existant du conteneur
   containerChoice.appendChild(x);
+  input.value = "";
+
+  containerChoice.innerHTML += `
+  <div class="infos">
+          <div class="infosFirst">
+            <p>Name: ${nameP}</p>
+            <p>Développeur: ${nameP} Production</p>
+          </div>
+          <div class="infosFirst">
+          <p>Category: Nouvauté</p>
+          <p>Technology: HTML/CSS/JS</p>
+          </div>
+          <div class="infosFirst">
+            <p>création: 2022/2023</p>
+            <p>Dernière MAJ: 2022/2023</p>
+          </div>
+        </div>`;
   getGame.style.display = "none";
-  input.value = ""
+  otherGameLeft.innerHTML = `
+  <li class="cards">
+                            <div class="card new">
+                                <img src="/images/hawked-annonce-par-upwake-trailer-infos-date-de-sortie-alpha-fermee-24-novembre-2022-pc-ps4-ps5-xbox-one-series.jpg"
+                                    alt="">
+                            </div>
+                            <div class="name">
+                                <h2>Hawked</h2>
+                            </div>
+                        </li>
+                        <li class="cards">
+                            <div class="card">
+                                <img src="/images/brothers-in-arms-3-mod-apk.jpg" alt="">
+                            </div>
+                            <div class="name">
+                                <h2>Brothers in arms 3</h2>
+                            </div>
+                        </li>
+                        <li class="cards">
+                            <div class="card">
+                                <img src="/images/zombies-games.jpg" alt="">
+                            </div>
+                            <div class="name">
+                                <h2>Zombie game</h2>
+                            </div>
+                        </li>
+                        <li class="cards">
+                            <div class="card top-rated">
+                                <img src="/images/cricket-legends.webp" alt="">
+                            </div>
+                            <div class="name">
+                                <h2>Cricket legend</h2>
+                            </div>
+                        </li>
+                        <li class="cards">
+                            <div class="card">
+                                <img src="/images/WRC-5-Jeu-PC-Télécharger-complet.jpg" alt="">
+                            </div>
+                            <div class="name">
+                                <h2>WRC 5</h2>
+                            </div>
+                        </li>
+                        <li class="cards">
+                            <div class="card">
+                                <img src="/images/league-of-angels3.jpg" alt="">
+                            </div>
+                            <div class="name">
+                                <h2>League of angels 3</h2>
+                            </div>
+                        </li>
+  `;
+
+  otherGameRigth.innerHTML = `
+            <li class="cards">
+                <div class="card top-rated">
+                  <img src="/images/toy-car-racung.avif" alt="">
+                </div>
+
+            <div class="name">
+                <h2>Toy car racing</h2>
+                </div>
+                </li>
+          <li class="cards">
+            <div class="card new">
+                <img src="/images/super-fast-driver.avif" alt="">
+            </div>
+            <div class="name">
+                <h2>Super fast driver</h2>
+            </div>
+          </li>
+          <li class="cards">
+            <div class="card">
+                <img src="/images/sport-car-challenge.avif" alt="">
+            </div>
+            <div class="name">
+                <h2>Sport car challenge</h2>
+            </div>
+          </li>
+          <li class="cards">
+            <div class="card">
+                <img src="/images/madalin-player.avif" alt="">
+            </div>
+            <div class="name">
+                <h2>Madalin player</h2>
+            </div>
+          </li>
+          <li class="cards">
+            <div class="card">
+                <img src="/images/endless-runner-3d (2).webp" alt="">
+            </div>
+            <div class="name">
+                <h2>Hendless runner</h2>
+            </div>
+          </li>
+          <li class="cards">
+            <div class="card">
+                <img src="/images/auto-driver.avif" alt="">
+            </div>
+            <div class="name">
+                <h2>Auto driver</h2>
+            </div>
+          </li>
+  `;
 };
 
+const black = document.querySelector(".black");
 const liveTaping = () => {
   input.addEventListener("input", (e) => {
     let eTarget = e.target.value.toLowerCase();
-
+    black.style.display = "block";
     let matchingGames = combinedData.filter((data) =>
       data.nameGame.includes(eTarget)
     );
@@ -864,7 +996,7 @@ const liveTaping = () => {
 
         return `<div class="displaySearch">
                   ${imagesHTML}
-                  <p>${gameName}</p>
+                  <h4>${gameName}</h4>
                 </div>`;
       })
       .join("");
@@ -877,9 +1009,25 @@ const liveTaping = () => {
     displaySearch.forEach((dsearch) => {
       dsearch.addEventListener("click", () => {
         displayGameInput(dsearch);
+        returnTop();
+        black.style.display = "none";
+        getGame.style.display = "none";
       });
     });
-    // console.log(displaySearch);
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+
+      if (
+        !target.classList.contains("displaySearch") &&
+        !target.classList.contains("input") &&
+        !target.classList.contains("svgSearch")
+      ) {
+        black.style.display = "none";
+        getGame.style.display = "none";
+        input.value = "";
+      }
+    });
   });
 };
 
